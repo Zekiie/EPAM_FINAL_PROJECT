@@ -1,0 +1,22 @@
+// header style
+
+.main-menu {
+  display: flex;
+}
+
+.main-menu {
+  justify-content: space-around;
+  align-items: center;
+  color: red;
+  @include size(95%);
+  border: 1px solid black;
+  margin: auto;
+
+
+  &_logo {
+    @include size(10%);
+  }
+}
+.logo-img {
+  border: 1px solid black;
+}
