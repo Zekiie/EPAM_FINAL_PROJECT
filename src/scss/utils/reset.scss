@@ -21,10 +21,10 @@ time, mark, audio, video {
 // Links
 a {
   text-decoration: none;
-
-  &:active, &:hover {
-    outline: 0;
-  }
+  color: #565f66;
+  //&:active, &:hover {
+  //  outline: 0;
+  //}
 }
 
 // List
@@ -50,7 +50,7 @@ html {
 }
 
 :focus {
-  outline: 0;
+  outline-color: rgb(237, 156, 186);
 }
 
 img, audio, video {
@@ -77,7 +77,7 @@ textarea {
 }
 
 input, textarea, select, button {
-  //outline: none;
+  outline-color: rgb(237, 156, 186);
   //border: none;
   font-size: 100%;
   margin: 0;
