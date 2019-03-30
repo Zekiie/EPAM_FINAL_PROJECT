@@ -1,48 +1,113 @@
 // header style
-
-.main-menu {
-  display: flex;
+header {
+  position: relative;
 }
 
 .main-menu {
+  display: flex;
   justify-content: space-around;
   align-items: center;
   @include size(85%);
-  border: 1px solid black;
+  //border: 1px solid black;
   font-family: "Helvetica Neue", "Arial";
-  margin: auto;
+  margin: 15px auto;
   font-size: 1.1em;
   color: $mainFontColor;
+
   &_logo {
     @include size(10%);
   }
+
   &_search {
     @include size(40%);
+    position: relative;
   }
+
   &_buy {
     padding: 0 20px;
     border-right: 1px solid black;
     border-left: 1px solid black;
   }
+
+  &_categories {
+    display: flex;
+    &:hover .submenu{
+      display: flex;
+    }
+  }
 }
-.search{
+
+.search {
   &_input {
     @include size(70%, 40px);
     outline-color: rgb(237, 156, 186);
     padding: 10px;
+
     &::placeholder {
       padding: 5px;
     }
   }
+
   &_btn {
     @include size(20%, 40px);
     background: $primary-color;
     color: $default-color;
     border: none;
     margin: 0 -5px;
+    cursor: pointer;
+  }
+
+  &_list {
+    display: none;
+    @include size(70%, 250px);
+    position: absolute;
+    z-index: 1;
+    background: $default-color;
+    border-radius: 5px;
+    box-shadow: 10px 10px 14px -8px rgba(0, 0, 0, 0.75);
+    overflow-y: scroll;
+  }
+
+}
+
+.list {
+  @include size(100%, 200px);
+  &_item {
+    margin-top: 5px;
+    padding: 5px 20px;
+    cursor: pointer;
+    font-size: 12px;
+
+    &:hover {
+      background: rgba(49, 176, 224, 0.16);
+      box-shadow: 10px 10px 12px -15px rgba(0,0,0,0.75);
+    }
   }
 }
+.hide {
+  display: none;
+}
 .buy {
+
+}
+
+.submenu {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  @include size(100%, 100%);
+  border: 1px solid black;
+  left: 0;
+  top: 13%;
+  z-index: 1;
+}
+.sub-submenu {
+  @include size(100%, 100%);
+  font-size: 12px;
+  margin-top: 10px;
+  li {
+    margin: 10px 0;
+  }
 
 }
 
@@ -52,19 +117,22 @@
   @include size(100%, 350px);
   position: relative;
   margin: auto;
-   &_items {
-     display: none;
-     @include size(100%, 100%);
-     &-info {
-       border: 1px solid black;
-       @include size(50%, 100%);
-     }
-     &-img {
-       @include size(100%, 100%);
-       max-width: 70vw;
-       vertical-align: middle;
-     }
-}
+
+  &_items {
+    display: none;
+    @include size(100%, 100%);
+
+    &-info {
+      border: 1px solid black;
+      @include size(50%, 100%);
+    }
+
+    &-img {
+      @include size(100%, 100%);
+      max-width: 70vw;
+      vertical-align: middle;
+    }
+  }
 }
 
 .fade {
@@ -79,9 +147,11 @@
   font-size: 3em;
   transform: translate(-50%, -50%);
 }
+
 .slider_left {
   left: 3%;
 }
+
 .slider_right {
   right: 0%;
   padding: 0 10px;
