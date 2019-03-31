@@ -73,13 +73,12 @@ header {
 
 .list {
   @include size(100%, 200px);
-
   &_item {
     margin-top: 5px;
     padding: 5px 20px;
     cursor: pointer;
     font-size: 12px;
-
+    border: none;
     &:hover {
       background: rgba(49, 176, 224, 0.16);
       box-shadow: 10px 10px 12px -15px rgba(0, 0, 0, 0.75);
