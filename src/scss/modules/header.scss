@@ -31,7 +31,8 @@ header {
 
   &_categories {
     display: flex;
-    &:hover .submenu{
+
+    &:hover .submenu {
       display: flex;
     }
   }
@@ -72,6 +73,7 @@ header {
 
 .list {
   @include size(100%, 200px);
+
   &_item {
     margin-top: 5px;
     padding: 5px 20px;
@@ -80,88 +82,70 @@ header {
 
     &:hover {
       background: rgba(49, 176, 224, 0.16);
-      box-shadow: 10px 10px 12px -15px rgba(0,0,0,0.75);
+      box-shadow: 10px 10px 12px -15px rgba(0, 0, 0, 0.75);
     }
   }
 }
+
 .hide {
   display: none;
 }
+
 .buy {
 
 }
 
 .submenu {
-  display: flex;
+  display: none;
   justify-content: space-around;
   position: absolute;
-  @include size(100%, 100%);
-  border: 1px solid black;
+  width: 100%;
+  border-top: 2px groove #ababab;
   left: 0;
   top: 13%;
   z-index: 1;
+
+  &_item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    //padding: 5px 0;
+    &-a {
+      display: inline-block;
+      position: relative;
+      text-align: center;
+      background: $default-color;
+      padding: 5px 0;
+    }
+    &-a:before {
+      @include pseudo;
+      @include size(20px);
+      border-right: 1px solid $neutral-primary;
+      right: 1%;
+    }
+
+    &:last-child a:before {
+      border: none;
+    }
+    &:hover .sub-submenu,
+    &:focus .sub-submenu{
+      display: block;
+    }
+  }
+
+
 }
+
 .sub-submenu {
-  @include size(100%, 100%);
+  display: none;
+  //@include size(100%, 100%);
   font-size: 12px;
-  margin-top: 10px;
+  padding: 1em 1em;
+  overflow-y: scroll;
+  background: $default-color;
+
   li {
     margin: 10px 0;
   }
-
-}
-
-//slider styles
-
-.slider {
-  @include size(100%, 350px);
-  position: relative;
-  margin: auto;
-
-  &_items {
-    display: none;
-    @include size(100%, 100%);
-
-    &-info {
-      border: 1px solid black;
-      @include size(50%, 100%);
-    }
-
-    &-img {
-      @include size(100%, 100%);
-      max-width: 70vw;
-      vertical-align: middle;
-    }
-  }
-}
-
-.fade {
-  animation-name: slide_animation;
-  animation-duration: 1.5s;
-}
-
-.slider_left, .slider_right {
-  position: absolute;
-  color: $purple-color;
-  top: 50%;
-  font-size: 3em;
-  transform: translate(-50%, -50%);
-}
-
-.slider_left {
-  left: 3%;
-}
-
-.slider_right {
-  right: 0%;
-  padding: 0 10px;
-}
-
-.slider_left:hover, .slider_right:hover {
-  border: 1px solid #31b0e0;
-  padding: 0 10px;
-  border-radius: 50%;
-  background: $primary-color;
-  cursor: pointer;
 
 }
