@@ -31,7 +31,6 @@
   position: absolute;
   color: $purple-color;
   top: 50%;
-  font-size: 3em;
   transform: translate(-50%, -50%);
 }
 
@@ -40,15 +39,19 @@
 }
 
 .slider_right {
-  right: 0%;
-  padding: 0 10px;
+  right: 0;
+  padding: 10px 2px;
 }
 
 .slider_left:hover, .slider_right:hover {
   border: 1px solid #31b0e0;
-  padding: 0 10px;
-  border-radius: 50%;
-  background: $primary-color;
+  padding: 10px 2px;
+  //border-radius: 50%;
+  background: rgba(49, 176, 224, 0.59);
+  color: #e5dae0;
   cursor: pointer;
-
+}
+.lnr {
+  font-size: 2em;
+  font-weight: 900;
 }
