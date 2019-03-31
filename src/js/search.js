@@ -12,6 +12,7 @@ const input = document.getElementById("search-input"),
     goods.forEach((el) => categClone.push(el.cloneNode(true)));
     categClone.forEach((el) => {
         let li = document.createElement('li');
+        el.classList.remove('submenu_item-a');
         li.classList.add("list_item");
         li.appendChild(el);
         categ.push(li);
@@ -22,7 +23,6 @@ function showList() {
     categ.forEach((el) => {
         ul.appendChild(el);
     });
-
 }
 
 const search = () => {

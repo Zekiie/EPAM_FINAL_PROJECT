@@ -1,10 +1,4 @@
-// .wrapper_example {
-//   display: flex;
-//   h1 {
-//     font-size: rem(20)
-//   }
-// }
-
-// #main {
-//   width: 100%;
-// }
+.lots-section {
+  @include size(100%);
+  margin: 2% auto;
+}

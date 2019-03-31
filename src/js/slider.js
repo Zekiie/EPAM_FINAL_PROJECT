@@ -30,4 +30,4 @@ function arrowChange (arr, n) {
 
 document.getElementById("left-sl").addEventListener("click", () =>  arrowChange(slideIndex += 1));
 document.getElementById("right-sl").addEventListener("click", () =>  arrowChange(slideIndex -= 1));
-showSlides();
+// showSlides();
