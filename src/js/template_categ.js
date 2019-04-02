@@ -1,5 +1,2 @@
-const categories = [
-    {
-
-    }
-]
+import '../js/json/lots'
+console.log(lotsCatalog);

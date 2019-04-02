@@ -2,3 +2,29 @@
   @include size(100%);
   margin: 2% auto;
 }
+
+.contacts {
+  background: rgba(237, 237, 233, 0.95);
+  &_container {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    padding: 20px 0;
+    width: 85%;
+    color: rgb(0, 9, 9);
+  }
+}
+
+.social_icon {
+  width: 45px;
+}
+
+h3 {
+  margin: 20px 0;
+}
+
+.social_m {
+  display: flex;
+  flex-direction: column;
+  line-height: 2;
+}
