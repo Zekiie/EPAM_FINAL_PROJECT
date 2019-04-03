@@ -6,6 +6,11 @@ const showSlides = () => {
     slideIndex ++;
     changeSlides(slideIndex, slides);
     setTimeout(showSlides, 3000)
+    // for (;true;) {
+
+    // }
+
+
 };
 
 
@@ -30,4 +35,5 @@ function arrowChange (arr, n) {
 
 document.getElementById("left-sl").addEventListener("click", () =>  arrowChange(slideIndex += 1));
 document.getElementById("right-sl").addEventListener("click", () =>  arrowChange(slideIndex -= 1));
+
 showSlides();

@@ -1,20 +1,27 @@
 
 .container {
   //border: 1px solid black;
+  @include size (70%, 100%);
   display: flex;
   flex-wrap: wrap;
-  margin: 5%;
+  justify-content: space-around;
+  align-content:space-between;
+  margin: 5% auto;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 .card {
-  @include size(20%, 250px);
+  @include size(250px, 300px);
   position: relative;
   //border: 1px solid black;
   box-shadow: 0 3px 5px 1px rgba(0,0,0,0.75);
   padding: 5px;
   border-radius: 5px;
   transition: all .2s ease-in-out;
-  &-img {
+  margin: 20px 0;
+  &_img {
     padding: 5px;
+    @include size(100%, 80%);
   }
   &_details {
     @include size(100%, 100px);
@@ -24,14 +31,18 @@
     line-height: 1.5;
     padding: 5px 10px;
     background: $default-color;
+    border-radius: 5px;
+    transition: height 0.3s;
+    bottom: 0;
     left: 0;
     h2 {
       font-size: 1.5em;
       white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
     &:hover {
-      top: 100px;
-      height: 120px;
+      height: 60%;
     }
     &:hover .description {
       display: block;
@@ -47,7 +58,7 @@
 
   &:hover {
     box-shadow: 0 3px 5px 1px #f2c621;
-    transition: 0.3s;
+    transition: 0.2s;
     transform: scale(1.1);
   }
 
@@ -55,6 +66,7 @@
 }
 .description {
   //@include multiLineEllipsis(1.1em, 3, #fff);
+  height: 40%;
   display: none;
   line-height: 1.2;
   text-align: justify;
