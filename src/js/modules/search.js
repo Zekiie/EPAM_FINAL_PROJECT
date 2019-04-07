@@ -1,5 +1,5 @@
 const input = document.getElementById("search-input"),
-    goods = [...document.querySelectorAll(".submenu a")],
+    goods = [...document.querySelectorAll(".submenu a")], //.map(_ => [_.href, _.innerHTML]),
     categClone = [],
     ul = document.getElementById('list'),
     list = (style) => document.getElementById('search-list').style.display = style,

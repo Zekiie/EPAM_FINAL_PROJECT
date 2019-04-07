@@ -13,7 +13,7 @@ const webpack = require('webpack'),
         plugins: [
             new webpack.SourceMapDevToolPlugin({
                 filename: '[file].map'
-            })
+            }),
         ]
     });
 

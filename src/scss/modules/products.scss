@@ -1,14 +1,23 @@
+.lots-section {
+  @include size(100%);
+  margin: 2% auto;
+  h2 {
+    font-size: 1.5em;
+    margin: auto;
+    text-align: center  ;
+  }
+}
 
 .container {
   //border: 1px solid black;
-  @include size (70%, 100%);
+  @include size (70%, 720px);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-content:space-between;
-  margin: 5% auto;
+  align-content:center;
+  margin: 10px auto;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: auto;
 }
 .card {
   @include size(250px, 300px);
@@ -36,7 +45,7 @@
     bottom: 0;
     left: 0;
     h2 {
-      font-size: 1.5em;
+     text-align: left;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -61,11 +70,8 @@
     transition: 0.2s;
     transform: scale(1.1);
   }
-
-
 }
 .description {
-  //@include multiLineEllipsis(1.1em, 3, #fff);
   height: 40%;
   display: none;
   line-height: 1.2;
@@ -104,13 +110,13 @@
   cursor: pointer;
   border-bottom-right-radius: 5px;
 }
-
-.info-label:before {
-  @include pseudo;
-  @include size(17px);
-  border: 2px solid $default-color;
-  border-radius: 50%;
-  top:20%;
-  left: 52%;
-  z-index: 1;
-}
+//
+//.info-label:before {
+//  @include pseudo;
+//  @include size(17px);
+//  border: 2px solid $default-color;
+//  border-radius: 50%;
+//  top:20%;
+//  left: 52%;
+//  z-index: 1;
+//}

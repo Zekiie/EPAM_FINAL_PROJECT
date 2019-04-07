@@ -112,38 +112,47 @@
     </nav>
 
     <div class="slider">
-        <div class="slider_items">
+        <div class="slider_items fade">
             <div class="slider_items-info">
                 <h2>Find Best Deal</h2>
                 <p>Are you fast enough?</p>
-                <a href="" class="btn-slider">Bid Now</a>
+                <a href="" class="btn-slider">Bid Now
+                    <span class="lnr lnr-arrow-right"></span>
+                </a>
             </div>
             <img src="app/img/car.jpg" alt="toy car" class="slider_items-img">
         </div>
 
-        <div class="slider_items">
+        <div class="slider_items fade">
             <div class="slider_items-info">
                 <h2>Cool Beauty Deals</h2>
                 <p>Keep connected, keep the time, and keep dry</p>
-                <a href="" class="btn-slider">Bid Now</a>
+                <a href="" class="btn-slider">Bid Now
+                    <span class="lnr lnr-arrow-right"></span>
+                </a>
             </div>
             <img src="app/img/cosmetic.jpg" alt="hand cream" class="slider_items-img">
         </div>
 
-        <div class="slider_items">
+        <div class="slider_items fade">
             <div class="slider_items-info">
                 <h2>Sell With Best Price</h2>
                 <p>Discover the outstanding way of selling</p>
-                <a href="" class="btn-slider">Bid Now</a>
+                <a href="" class="btn-slider">Sell Now
+                    <span class="lnr lnr-arrow-right"></span>
+                </a>
             </div>
             <img src="app/img/glass.jpg" alt="glasses" class="slider_items-img">
         </div>
 
-        <div class="slider_items">
+        <div class="slider_items fade">
             <div class="slider_items-info">
                 <h2>Ready to Bid What's Hot?</h2>
                 <p>Find our most searched items in one place, every week.</p>
-                <a href="" class="btn-slider">Bid Now</a>
+                <a href="" class="btn-slider">
+                    Bid Now
+                    <span class="lnr lnr-arrow-right"></span>
+                </a>
             </div>
             <img src="app/img/bag.jpg" alt="women bags" class="slider_items-img">
         </div>
@@ -164,79 +173,107 @@
     <section id="lots" class="lots-section">
         <h2>AUCTION GALLERY</h2>
 
-        <div class="container" id="card-container">
-            <!--{{cardsTemplate}}-->
-            <!--<div class="card">-->
-                <!--<img src="app/img/goods/antiques.jpg" alt="antiques vase" class="container_card-img">-->
-                <!--<div class="card_details">-->
-                    <!--<h2>{{productTitle}}</h2>-->
-                    <!--<p>{{price}}</p>-->
-                    <!--<div id="description" class="description">-->
-                        <!--{{textDecription}}-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="card_btn">-->
-                    <!--<label for="bid"></label>-->
-                    <!--<input id="bid" type="number" class="bid-input">-->
-                    <!--<input type="button" id="addBid" value="Bid" class="bid-btn">-->
-                    <!--<label for="info" class="info-label"></label>-->
-                    <!--<input type="button" id="info" value="+  More details" class="info-btn">-->
-                <!--</div>-->
-            <!--</div>-->
+<!--        <div class="container" id="card-container">-->
+<!--            &lt;!&ndash;{{cardsTemplate}}&ndash;&gt;-->
+<!--            &lt;!&ndash;<div class="card">&ndash;&gt;-->
+<!--            &lt;!&ndash;<img src="app/img/goods/antiques.jpg" alt="antiques vase" class="container_card-img">&ndash;&gt;-->
+<!--            &lt;!&ndash;<div class="card_details">&ndash;&gt;-->
+<!--            &lt;!&ndash;<h2>{{productTitle}}</h2>&ndash;&gt;-->
+<!--            &lt;!&ndash;<p>{{price}}</p>&ndash;&gt;-->
+<!--            &lt;!&ndash;<div id="description" class="description">&ndash;&gt;-->
+<!--            &lt;!&ndash;{{textDecription}}&ndash;&gt;-->
+<!--            &lt;!&ndash;</div>&ndash;&gt;-->
+<!--            &lt;!&ndash;</div>&ndash;&gt;-->
+<!--            &lt;!&ndash;<div class="card_btn">&ndash;&gt;-->
+<!--            &lt;!&ndash;<label for="bid"></label>&ndash;&gt;-->
+<!--            &lt;!&ndash;<input id="bid" type="number" class="bid-input">&ndash;&gt;-->
+<!--            &lt;!&ndash;<input type="button" id="addBid" value="Bid" class="bid-btn">&ndash;&gt;-->
+<!--            &lt;!&ndash;<label for="info" class="info-label"></label>&ndash;&gt;-->
+<!--            &lt;!&ndash;<input type="button" id="info" value="+  More details" class="info-btn">&ndash;&gt;-->
+<!--            &lt;!&ndash;</div>&ndash;&gt;-->
+<!--            &lt;!&ndash;</div>&ndash;&gt;-->
+<!--        </div>-->
 
+
+            <div class="container" id="card-container"></div>
+        <div class="pagination">
+            <div class="pagination_block">
+                <span class="pagination_btn" id="button_prev">Prev</span>
+                <span id="page_number" class="pagination_number"></span>
+                <span class="pagination_btn" id="button_next">Next</span>
+            </div>
+        </div>
+        <div class="bottom-btn">
+            <button class="bottom-btn_sell">Sell here!</button>
+            <button class="bottom-btn_info">Explore more!</button>
         </div>
     </section>
 
     <section class="contacts">
-            <div class="contacts_container">
-                <div>
-                    <article class="contact-detail">
-                        <h3>Contact</h3>
-                        <p>Sportyvna Square, 1а, Kyiv, 01023</p>
-                        <p>M: +380 99 984 3678</p>
-                        <p>P: +380 44 984 3678</p>
-                    </article>
-                    <div class="social_m">
-                        <h3>Find us here:</h3>
-                        <div class="wrap_snlink">
-                            <a href="https://twitter.com/tesla?lang=en" target="_blank">
-                                <img src="https://drive.google.com/uc?export=view&id=1EJQoh4R7YrpHsiyFES3TTRmoKDakuog6"
-                                     class="social_icon" alt="twitter">
-                            </a>
-                            <a href="https://www.snapchat.com/" target="_blank">
-                                <img src="https://drive.google.com/uc?export=view&id=153VQIyFHrGSXmSQV0cCc-4gmqqQC1g9H"
-                                     class="social_icon" alt="spanchat">
-                            </a>
-                            <a href="https://www.instagram.com/wwf/?hl=en" target="_blank">
-                                <img src="https://drive.google.com/uc?export=view&id=172tFVTXvrHtsZ8wtq2H8K7hHRy4StQ6R"
-                                     class="social_icon" alt="instagram">
-                            </a>
-                            <a href="https://www.pinterest.com/fromupnorth/web-design/?lp=true" target="_blank">
-                                <img src="https://drive.google.com/uc?export=view&id=1ONK4LXovUVj2X4_aXq1G2R9QqNB0OwQy"
-                                     class="social_icon" alt="pinterest">
-                            </a>
-                        </div>
+        <div class="contacts_container">
+            <div>
+                <article class="contact-detail">
+                    <h3>Contact</h3>
+                    <p>Sportyvna Square, 1а, Kyiv, 01023</p>
+                    <p>M: +380 99 984 3678</p>
+                    <p>P: +380 44 984 3678</p>
+                </article>
+                <div class="social_m">
+                    <h3>Find us here:</h3>
+                    <div class="wrap_snlink">
+                        <a href="https://twitter.com/tesla?lang=en" target="_blank">
+                            <img src="https://drive.google.com/uc?export=view&id=1EJQoh4R7YrpHsiyFES3TTRmoKDakuog6"
+                                 class="social_icon" alt="twitter">
+                        </a>
+                        <a href="https://www.snapchat.com/" target="_blank">
+                            <img src="https://drive.google.com/uc?export=view&id=153VQIyFHrGSXmSQV0cCc-4gmqqQC1g9H"
+                                 class="social_icon" alt="spanchat">
+                        </a>
+                        <a href="https://www.instagram.com/wwf/?hl=en" target="_blank">
+                            <img src="https://drive.google.com/uc?export=view&id=172tFVTXvrHtsZ8wtq2H8K7hHRy4StQ6R"
+                                 class="social_icon" alt="instagram">
+                        </a>
+                        <a href="https://www.pinterest.com/fromupnorth/web-design/?lp=true" target="_blank">
+                            <img src="https://drive.google.com/uc?export=view&id=1ONK4LXovUVj2X4_aXq1G2R9QqNB0OwQy"
+                                 class="social_icon" alt="pinterest">
+                        </a>
                     </div>
                 </div>
+            </div>
 
-                    <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.1401074860264!2d30.520645915264737!3d50.43849089610838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf580b626ba3%3A0xee82b65435e0c03c!2sGulliver!5e0!3m2!1sen!2sua!4v1550598565905"
-                                width="350" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    </div>
-                </div>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.1401074860264!2d30.520645915264737!3d50.43849089610838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf580b626ba3%3A0xee82b65435e0c03c!2sGulliver!5e0!3m2!1sen!2sua!4v1550598565905"
+                        width="350" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
     </section>
 </main>
 
 
 <footer>
-    <!-- footer here -->
+        <div class="footer-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Terms of Servise</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="more-contact">
+            <a href="https://www.facebook.com/zuck" target="_blank">
+                <img src="https://drive.google.com/uc?export=view&id=1Mf4syLP3Z7jhyusUunWDqj-1Du8fvrJV" alt="">
+            </a>
+            <a href="https://www.linkedin.com/company/microsoft/" target="_blank">
+                <img src="https://drive.google.com/uc?export=view&id=1zBWfo27EOQyxLF6WhDyTpQNKqKjNKUzY" alt="">
+            </a>
+            <a href="https://github.com/epam" target="_blank">
+                <img src="https://drive.google.com/uc?export=view&id=1va8epUyjtEB-w2rLA61HILYXZQvt4mqZ" alt="">
+            </a>
+        </div>
+        <span>&copy; Adventure Company. Copyright 2019.</span>
 </footer>
 
 
-<!-- end content wrapper -->
-</div>
 
-<!-- end main wrapper -->
-</div>
 </body>
 </html>

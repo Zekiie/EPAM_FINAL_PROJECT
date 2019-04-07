@@ -14,9 +14,10 @@ module.exports = {
     externals: {
         paths: PATHS
     },
-    entry: {
-        app: PATHS.src
-    },
+    entry: ['@babel/polyfill', PATHS.src],
+    // entry: {
+    //     app: PATHS.src
+    // },
     output: {
         filename: `${PATHS.app}js/[name].js`,
         path: PATHS.dist,

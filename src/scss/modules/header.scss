@@ -52,11 +52,10 @@ header {
   &_btn {
     @include size(20%, 40px);
     background: $primary-color;
+    border: 1px solid $primary-color;
     color: $default-color;
-    border: none;
     margin: 0 -5px;
     cursor: pointer;
-    font-size: 0.8em;
   }
 
   &_list {
@@ -131,6 +130,10 @@ header {
     &:focus .sub-submenu{
       display: block;
     }
+    &:hover,
+    &:focus {
+      background: rgba(214, 174, 171, 0.64);
+    }
   }
 
 
@@ -138,14 +141,18 @@ header {
 
 .sub-submenu {
   display: none;
-  //@include size(100%, 100%);
   font-size: 12px;
-  padding: 1em 1em;
-  overflow-y: scroll;
+  overflow-y: auto;
   background: $default-color;
 
-  li {
-    margin: 10px 0;
+
+  li{
+    padding: 1em 1em;
+    cursor: pointer;
+    &:hover {
+      background: rgba(150, 170, 164, 0.64);
+    }
   }
+
 
 }
