@@ -22,18 +22,19 @@ function lotTemplate(obj) {
 `
 }
 
+const prevButton = document.getElementById('button_prev');
+const nextButton = document.getElementById('button_next');
+const clickPageNumber = document.querySelectorAll('.clickPageNumber');
+
 (function () {
     function Pagination() {
-        const prevButton = document.getElementById('button_prev');
-        const nextButton = document.getElementById('button_next');
-        // const clickPageNumber = document.querySelectorAll('.clickPageNumber');
 
         let current_page = 1;
         let records_per_page = 6;
 
         this.init = () => {
             changePage(1);
-            pageNumbers(pageMove(+current_page));
+            pageNumbers(pageMove(+current_page, numPages()));
             selectedPage();
             clickPage();
             addEventListeners();
@@ -52,6 +53,7 @@ function lotTemplate(obj) {
                 } else {
                     page_number[i].style.opacity = "0.5";
                 }
+                // console.log(page_number)
             }
         };
 
@@ -79,14 +81,13 @@ function lotTemplate(obj) {
             }
             checkButtonOpacity();
             selectedPage();
-            checkButtonOpacity();
         };
 
         let prevPage = () => {
             if (current_page > 1) {
                 current_page--;
                 changePage(current_page);
-                pageNumbers(pageMove(+current_page));
+                pageNumbers(pageMove(+current_page, numPages()));
             }
         };
 
@@ -94,7 +95,7 @@ function lotTemplate(obj) {
             if (current_page < numPages()) {
                 current_page++;
                 changePage(current_page);
-                pageNumbers(pageMove(+current_page));
+                pageNumbers(pageMove(+current_page, numPages()));
             }
         };
 
@@ -105,21 +106,22 @@ function lotTemplate(obj) {
                     console.log(typeof current_page);
                     changePage(current_page);
                     pageMove(+current_page);
-                    pageNumbers(pageMove(+current_page));
+                    pageNumbers(pageMove(+current_page, numPages()));
                 }
             });
         };
 
-        let pageMove = (start) => {
+        let pageMove = (start, num) => {
             let delta = 3,
+                size = num,
                 range = [],
                 rangeWithDots = [],
                 left = start - delta,
                 right = start + delta + 1,
                 l;
             console.log(start);
-            for (let i = 1; i <= numPages(); i++) {
-                if (i === 1 || i === numPages() || i >= left && i < right) {
+            for (let i = 1; i <= size; i++) {
+                if (i === 1 || i === size || i >= left && i < right) {
                     range.push(i);
                 }
             }
@@ -134,7 +136,6 @@ function lotTemplate(obj) {
                 rangeWithDots.push(i);
                 l = i;
             }
-            console.log(rangeWithDots);
             return rangeWithDots;
         };
 
@@ -142,6 +143,7 @@ function lotTemplate(obj) {
             let pageNumber = document.getElementById('page_number');
             pageNumber.innerHTML = "";
             arr.map((el) => pageNumber.innerHTML += `<span class='clickPageNumber'>${el} </span>`)
+            selectedPage()
         }
     }
 

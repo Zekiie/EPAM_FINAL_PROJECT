@@ -19,15 +19,15 @@ const input = document.getElementById("search-input"),
     })
 })();
 
-function showList() {
-    categ.forEach((el) => {
-        ul.appendChild(el);
+function showList(arr, par) {
+    arr.forEach((el) => {
+        par.appendChild(el);
     });
 }
 
 const search = () => {
 
-    showList();
+    showList(categ, ul);
     list('block');
 
     const textSearch = input.value.trim();
