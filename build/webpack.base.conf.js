@@ -77,7 +77,8 @@ module.exports = {
         new CopyWebpackPlugin([
             {from: `${PATHS.src}/img`, to: `${PATHS.app}img`},
             {from: `${PATHS.src}/img/goods`, to: `${PATHS.app}img/goods`},
-            {from: `${PATHS.src}/scss/font`, to: `${PATHS.app}/font`},
+            {from: `${PATHS.src}/scss/font`, to: `${PATHS.app}/css/font`},
+            {from: `${PATHS.src}/js/json`, to: `${PATHS.app}/js/json`},
 
         ])
     ],

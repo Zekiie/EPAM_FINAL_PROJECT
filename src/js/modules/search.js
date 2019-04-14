@@ -47,5 +47,4 @@ const search = () => {
     }
 };
 
-
 input.addEventListener("input", search);

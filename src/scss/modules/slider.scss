@@ -4,7 +4,7 @@
   @include size(100%, 350px);
   position: relative;
   margin: auto;
-
+  //display: none;
   &_items {
     display: none;
     @include size(100%, 100%);

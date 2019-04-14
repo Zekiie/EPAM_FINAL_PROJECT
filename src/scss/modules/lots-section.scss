@@ -1,6 +1,6 @@
 .lots-section {
   @include size(100%);
-  margin: 2% auto;
+  margin: 5% auto;
   h2 {
     font-size: 1.5em;
     margin: auto;
@@ -9,12 +9,10 @@
 }
 
 .container {
-  //border: 1px solid black;
   @include size (75%, 720px);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-content:center;
   margin: 10px auto;
   box-sizing: border-box;
   overflow: auto;
@@ -22,12 +20,11 @@
 .card {
   @include size(250px, 300px);
   position: relative;
-  //border: 1px solid black;
   box-shadow: 0 3px 5px 1px rgba(0,0,0,0.75);
   padding: 5px;
   border-radius: 5px;
   transition: all .2s ease-in-out;
-  margin: 20px 0;
+  margin: 20px 10px;
   cursor: pointer;
   &_img {
     padding: 5px;
@@ -67,7 +64,7 @@
   }
 
   &:hover {
-    box-shadow: 0 0px 7px 1px #f2c621;
+    box-shadow: 0 0 7px 1px #f2c621;
     transition: 0.2s;
     transform: scale(1.1);
   }
@@ -82,7 +79,6 @@
 }
 .bid-input {
   @include size(25%, 30px);
-  //border-bottom-left-radius: 5px;
   padding: 5px;
   font-size: 14px;
 }

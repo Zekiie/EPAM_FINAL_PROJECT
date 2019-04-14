@@ -1,5 +1,5 @@
 // header style
-header {
+nav{
   position: relative;
 }
 
@@ -13,7 +13,10 @@ header {
   margin: 15px auto;
   font-size: 1.1em;
   color: $mainFontColor;
-
+  cursor: pointer;
+  a:hover {
+    color: $primary-color;
+  }
   &_logo {
     @include size(10%);
   }
@@ -101,8 +104,9 @@ header {
   width: 100%;
   border-top: 2px groove #ababab;
   left: 0;
-  top: 13%;
+  top: 130%;
   z-index: 1;
+
 
   &_item {
     width: 100%;
@@ -135,8 +139,6 @@ header {
       background: rgba(214, 174, 171, 0.64);
     }
   }
-
-
 }
 
 .sub-submenu {
@@ -144,13 +146,18 @@ header {
   font-size: 12px;
   overflow-y: auto;
   background: $default-color;
-
+  position: relative;
+  box-shadow: -1px 16px 18px 0px rgba(0,0,0,0.75);
+  cursor: pointer;
 
   li{
     padding: 1em 1em;
     cursor: pointer;
     &:hover {
       background: rgba(150, 170, 164, 0.64);
+    }
+    a:hover {
+      color: $default-color;
     }
   }
 

@@ -1,44 +1,33 @@
-// import {lotsCatalog} from "../json/lots";
 
-function lotTemplate(obj) {
-    return `
-<div class="card">
-                <img src="${obj.img}" alt="${obj.title}" class="card_img">
-                <div class="card_details">
-                    <h2>${obj.title}</h2>
-                    <p>$${obj.initPrice}</p>
-                    <div id="description" class="description">
-                       ${obj.description}
-                    </div>
-                </div>
-                <div class="card_btn">
-                    <label for="bid"></label>
-                    <input id="bid" type="number" class="bid-input">
-                    <input type="button" id="addBid" value="Bid" class="bid-btn">
-                    <label for="info" class="info-label"></label>
-                    <input type="button" id="info" value="More details" class="info-btn">
-                </div>
+export class Pagination {
+    static createLotsSection () {
+        document.getElementById('root').innerHTML = `
+       <section id="lots" class="lots-section">
+        <h2>AUCTION GALLERY</h2>
+        <div class="container" id="card-container"></div>
+        <div class="pagination">
+            <div class="pagination_block">
+                <span class="pagination_btn" id="button_prev">
+                    <span class="lnr lnr-chevron-left"></span>
+                </span>
+                <span id="page_number" class="pagination_number"></span>
+                <span class="pagination_btn" id="button_next">
+                     <span class="lnr lnr-chevron-right"></span>
+                </span>
             </div>
-`
-}
-
-const prevButton = document.getElementById('button_prev');
-const nextButton = document.getElementById('button_next');
-const clickPageNumber = document.querySelectorAll('.clickPageNumber');
-
-(function () {
-    function Pagination() {
-
+        </div>
+        <div class="bottom-btn">
+            <button class="bottom-btn_sell sell">Sell here!</button>
+            <button class="bottom-btn_info">Explore more!</button>
+        </div>
+    </section>
+       `
+    }
+    getPagination(obj, ui, lotsPerPage) {
+        const prevButton = document.getElementById('button_prev');
+        const nextButton = document.getElementById('button_next');
         let current_page = 1;
-        let records_per_page = 6;
-
-        this.init = () => {
-            changePage(1);
-            pageNumbers(pageMove(+current_page, numPages()));
-            selectedPage();
-            clickPage();
-            addEventListeners();
-        };
+        let records_per_page = lotsPerPage;
 
         let addEventListeners = () => {
             prevButton.addEventListener('click', prevPage);
@@ -53,7 +42,6 @@ const clickPageNumber = document.querySelectorAll('.clickPageNumber');
                 } else {
                     page_number[i].style.opacity = "0.5";
                 }
-                // console.log(page_number)
             }
         };
 
@@ -62,9 +50,9 @@ const clickPageNumber = document.querySelectorAll('.clickPageNumber');
             current_page === numPages() ? nextButton.classList.add('opacity') : nextButton.classList.remove('opacity');
         };
 
-        let numPages = () => Math.ceil(lotsCatalog.length / records_per_page);
+        let numPages = () => Math.ceil(obj.length / records_per_page);
 
-        let changePage = (page) => {
+        let changePage = (page, container) => {
             const cardContainer = document.getElementById('card-container');
             // const ui = new UI();
             if (page < 1) {
@@ -74,11 +62,11 @@ const clickPageNumber = document.querySelectorAll('.clickPageNumber');
                 page = numPages();
             }
 
-            cardContainer.innerHTML = "";
+            cardContainer.innerHTML = '';
 
-            for (let i = (page - 1) * records_per_page; i < (page * records_per_page) && i < lotsCatalog.length; i++) {
+            for (let i = (page - 1) * records_per_page; i < (page * records_per_page) && i < obj.length; i++) {
                 // cardContainer.innerHTML += lotTemplate(lotsCatalog[i]);
-                // cardContainer.innerHTML += ui.displayLots(lotsCatalog);
+                cardContainer.innerHTML += ui(obj[i]);
             }
             checkButtonOpacity();
             selectedPage();
@@ -145,9 +133,14 @@ const clickPageNumber = document.querySelectorAll('.clickPageNumber');
             pageNumber.innerHTML = "";
             arr.map((el) => pageNumber.innerHTML += `<span class='clickPageNumber'>${el} </span>`)
             selectedPage()
-        }
-    }
+        };
 
-    let pagination = new Pagination();
-    pagination.init();
-})();
+        changePage(1);
+        pageNumbers(pageMove(+current_page, numPages()));
+        selectedPage();
+        clickPage();
+        addEventListeners();
+
+    }
+}
+
