@@ -4,7 +4,29 @@ import {SellPage} from "./sellview";
 
 
 export class UI {
-
+    createLotsSection () {
+         document.getElementById('root').innerHTML = `
+       <section id="lots" class="lots-section">
+        <h2>AUCTION GALLERY</h2>
+        <div class="container" id="card-container"></div>
+        <div class="pagination">
+            <div class="pagination_block">
+                <span class="pagination_btn" id="button_prev">
+                    <span class="lnr lnr-chevron-left"></span>
+                </span>
+                <span id="page_number" class="pagination_number"></span>
+                <span class="pagination_btn" id="button_next">
+                     <span class="lnr lnr-chevron-right"></span>
+                </span>
+            </div>
+        </div>
+        <div class="bottom-btn">
+            <a href="/sell" class="bottom-btn_sell sell" >Sell here!</a>
+            <button class="bottom-btn_info">Explore more!</button>
+        </div>
+    </section>
+       `
+    }
     displayLots(lots, itemPerPage) {
         let template = (lots) => {
         return `
@@ -28,7 +50,6 @@ export class UI {
  `
         };
         let pagination = new Pagination();
-        Pagination.createLotsSection();
         pagination.getPagination(lots, template, itemPerPage);
     }
     getBagButtons() {
@@ -47,23 +68,6 @@ export class UI {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    //two instance for class, no need storage instance, because there will be only static methods
-    const ui = new UI(),
-       lotsCatolog = new Lots(),
-        storage = new LocalStorage();
 
-    //get all lots
-    lotsCatolog.getLots().then(lots =>  {
-        ui.displayLots(lots, 6);
-        LocalStorage.saveLots(lots);
-        const sellPage = new SellPage();
-        sellPage.displaySellForm();
-    }).then(() => {
-        ui.addLots();
-        ui.getBagButtons();
-    });
-
-});
 
 // pagination.getPagination(lots, ui.displayLots(lots));

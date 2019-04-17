@@ -1,28 +1,5 @@
-
 export class Pagination {
-    static createLotsSection () {
-        document.getElementById('root').innerHTML = `
-       <section id="lots" class="lots-section">
-        <h2>AUCTION GALLERY</h2>
-        <div class="container" id="card-container"></div>
-        <div class="pagination">
-            <div class="pagination_block">
-                <span class="pagination_btn" id="button_prev">
-                    <span class="lnr lnr-chevron-left"></span>
-                </span>
-                <span id="page_number" class="pagination_number"></span>
-                <span class="pagination_btn" id="button_next">
-                     <span class="lnr lnr-chevron-right"></span>
-                </span>
-            </div>
-        </div>
-        <div class="bottom-btn">
-            <button class="bottom-btn_sell sell">Sell here!</button>
-            <button class="bottom-btn_info">Explore more!</button>
-        </div>
-    </section>
-       `
-    }
+
     getPagination(obj, ui, lotsPerPage) {
         const prevButton = document.getElementById('button_prev');
         const nextButton = document.getElementById('button_next');
@@ -134,7 +111,6 @@ export class Pagination {
             arr.map((el) => pageNumber.innerHTML += `<span class='clickPageNumber'>${el} </span>`)
             selectedPage()
         };
-
         changePage(1);
         pageNumbers(pageMove(+current_page, numPages()));
         selectedPage();

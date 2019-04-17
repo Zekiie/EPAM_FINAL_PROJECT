@@ -1,14 +1,18 @@
 
 export class SellPage {
     displaySellForm () {
-        const sellBtn = document.querySelectorAll(".sell"),
+        const slider = document.getElementById('slider'),
               root = document.getElementById('root');
-        sellBtn.forEach(el => {
-            el.addEventListener('click', () => {
+                slider.style.display = 'none';
                 root.innerHTML = `
                 <section class="add-lots">
         <form action="" method="post" id="add-to-catalog" class="sell-section">
             <div class="lot">
+            <label for="email-input" class="lot_email">Email
+                    <span class="req-color">*</span>
+                </label>
+                <input type="email" id="email-input" required>
+                
                 <label for="title-input" class="lot_title">Title
                     <span class="req-color">*</span>
                 </label>
@@ -69,10 +73,6 @@ export class SellPage {
         </article>
     </section>
                 `
-            })
-        })
     }
 
 }
-// const sellPage = new SellPage();
-//         sellPage.displaySellForm();
