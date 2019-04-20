@@ -1,9 +1,7 @@
 
 export class SellPage {
     displaySellForm () {
-        const slider = document.getElementById('slider'),
-              root = document.getElementById('root');
-                slider.style.display = 'none';
+          const root = document.getElementById('root');
                 root.innerHTML = `
                 <section class="add-lots">
         <form action="" method="post" id="add-to-catalog" class="sell-section">

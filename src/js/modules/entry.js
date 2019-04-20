@@ -9,6 +9,6 @@ import {Router} from './routers';
 
     } catch (e) {
         console.error(e);
-        alert("Error" + e.message)
+        alert("Something Goes Crazy!")
     }
 })();

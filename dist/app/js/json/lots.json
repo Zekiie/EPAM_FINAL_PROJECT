@@ -6,7 +6,7 @@
         "category": [
           {
             "main_ctg": "Home",
-            "sub_ctg": "Home"
+            "sub_ctg": "Baby"
           }
         ],
         "title": "Antiques Chinese Vase",
@@ -14,10 +14,10 @@
         "condition": "old",
         "start_price": "100",
         "minimum_bid_amount": 1,
-        "end_date": "",
+        "end_date": "20.04.2019",
         "images": {
           "primary_url": "app/img/goods/antiques.jpg",
-          "extra_url": []
+          "extra_url": ["app/img/goods/antiques.jpg", ""   ]
         }
       }
     },
@@ -69,18 +69,23 @@
         "category": [
           {
             "main_ctg": "Home",
-            "sub_ctg": "Home"
+            "sub_ctg": "Kitchen, Dinning & Bar"
           }
         ],
-        "title": "Antiques Chinese Vase",
+        "title": "Bronse Cup",
         "description": "Mid 19th Century Chinese Porcelain Vase and Lid",
         "condition": "old",
         "start_price": "100",
         "minimum_bid_amount": 1,
-        "end_date": "",
+        "end_date": "24.05.2019",
         "images": {
-          "primary_url": "app/img/goods/antiques.jpg",
-          "extra_url": []
+          "primary_url": "https://images.pexels.com/photos/2092557/pexels-photo-2092557.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          "extra_url": [
+            "https://images.pexels.com/photos/2092557/pexels-photo-2092557.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "https://images.pexels.com/photos/2092551/pexels-photo-2092551.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            "https://images.pexels.com/photos/2092558/pexels-photo-2092558.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "https://images.pexels.com/photos/2092556/pexels-photo-2092556.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          ]
         }
       }
     },
@@ -163,8 +168,10 @@
         "minimum_bid_amount": 1,
         "end_date": "",
         "images": {
-          "primary_url": "https://images.pexels.com/photos/1446272/pexels-photo-1446272.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-          "extra_url": []
+          "primary_url": "https://images.pexels.com/photos/2179865/pexels-photo-2179865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          "extra_url": ["https://images.pexels.com/photos/2179883/pexels-photo-2179883.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          "https://images.pexels.com/photos/2179865/pexels-photo-2179865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          "https://images.pexels.com/photos/2179864/pexels-photo-2179864.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500 "]
         }
       }
     },

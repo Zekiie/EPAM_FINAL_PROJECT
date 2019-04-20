@@ -14,7 +14,7 @@ module.exports = {
     externals: {
         paths: PATHS
     },
-    entry: ['@babel/polyfill', PATHS.src],
+    entry: ['@babel/polyfill','whatwg-fetch', PATHS.src],
     // entry: {
     //     app: PATHS.src
     // },

@@ -12,16 +12,21 @@ export class Lots {
             let lots = data.products;
             lots = lots.map( el => {
                 const id = el.lot_id;
-                const {title,description,start_price,end_date,minimum_bid_amount} = el.lot_info;
+                const {title,description,start_price,end_date,minimum_bid_amount, condition} = el.lot_info;
                 const {main, sub} = el.lot_info.category;
-                const image = el.lot_info.images.primary_url  ;
-                return {id,title,description,start_price,end_date,minimum_bid_amount,main, sub, image}
+                const image = el.lot_info.images.primary_url;
+                const images = el.lot_info.images.extra_url;
+                return {id,title,description,start_price,end_date,minimum_bid_amount, condition, main, sub, image, images}
             });
+
             return lots;
+
         } catch (error) {
             console.log(error);
         }
     }
+
+
 }
 
 

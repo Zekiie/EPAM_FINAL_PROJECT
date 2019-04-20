@@ -18,6 +18,7 @@
   overflow: auto;
 }
 .card {
+  display: block;
   @include size(250px, 300px);
   position: relative;
   box-shadow: 0 3px 5px 1px rgba(0,0,0,0.75);
@@ -43,10 +44,12 @@
     bottom: 0;
     left: 0;
     h2 {
+      font-size: 1em;
      text-align: left;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
+      font-weight: bold;
     }
     &:hover {
       height: 60%;
@@ -107,6 +110,8 @@
   margin-left: 5px;
   cursor: pointer;
   border-bottom-right-radius: 5px;
+  text-align: center;
+  line-height: 30px;
   &:hover {
     box-shadow: 0 0 10px 3px rgba(229, 90, 90, 0.78);
   }
@@ -144,6 +149,13 @@
     margin: 0 -2px;
     cursor: pointer;
     font-size: 16px;
+    text-align: center;
+    line-height: 40px;
+    &:hover {
+      box-shadow: 0 0 10px 3px #f2c621;
+      transition: 0.2s;
+      transform: scale(1.1);
+    }
   }
 }
 button:hover {

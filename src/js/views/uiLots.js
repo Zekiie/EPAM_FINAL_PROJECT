@@ -31,6 +31,7 @@ export class UI {
         let template = (lots) => {
         return `
                 <article class="card" data-id="${lots.id}">
+                <a href="/#info/${lots.id}">
                 <img src="${lots.image}" alt="${lots.title}" class="card_img">
                 <div class="card_details">
                     <h2>${lots.title}</h2>
@@ -39,12 +40,13 @@ export class UI {
                        ${lots.description}
                     </div>
                 </div>
+                </a>
                 <div class="card_btn">
                     <label for="bid"></label>
                     <input id="bid" type="number" class="bid-input">
                     <input type="button" id="addBid-${lots.id}" value="Bid" class="bid-btn">
                     <label for="info" class="info-label"></label>
-                    <input type="button" id="info-${lots.id}" value="More details" class="info-btn">
+                    <a href="/#info/${lots.id}" id="info-${lots.id}"  class="info-btn"> More details </a>
                 </div>
             </article>
  `

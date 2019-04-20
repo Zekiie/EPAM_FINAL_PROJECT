@@ -1,43 +1,43 @@
 import {LocalStorage, Lots} from "./lotsCatalog";
 import {SellPage} from "../views/sellview";
 import {UI} from "../views/uiLots";
+import {Slider} from "./slider";
+import {FullLotsInfo} from "../views/fullLotsView";
+import {lotsCatalog} from "../json/lots";
 
+const ui = new UI(),
+    lotsCatolog = new Lots(),
+    slider = new Slider();
 
 export class Controller {
     async mainRoute() {
-        const ui = new UI(),
-            lotsCatolog = new Lots();
-        ui.createLotsSection ();
-        lotsCatolog.getLots().then(lots =>  {
+        slider.showSlider();
+        await ui.createLotsSection();
+        lotsCatolog.getLots().then(lots => {
             ui.displayLots(lots, 6);
             LocalStorage.saveLots(lots);
-            // const sellPage = new SellPage();
-            // sellPage.displaySellForm();
-        });
+        })
+        // const sellPage = new SellPage();
+        // sellPage.displaySellForm();
     }
-    async sellRoute () {
+
+    async sellRoute() {
         const sellPage = new SellPage();
         sellPage.displaySellForm();
+        await slider.hideSlider();
+    }
+
+    async infoRoute(params) {
+        let id = +params.id;
+        slider.hideSlider();
+        const fullLotsInfo = new FullLotsInfo();
+        lotsCatolog.getLots().then(lots => {
+                let lot = lots.find(lot => lot.id === id);
+                fullLotsInfo.fullCardTemplate(lot);
+                fullLotsInfo.timer();
+                fullLotsInfo.imageGallery();
+            }
+        );
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    //two instance for class, no need storage instance, because there will be only static methods
-    // let controller = new Controller();
-    // controller.mainRoute();
-    // const ui = new UI(),
-    //     lotsCatolog = new Lots(),
-    //     storage = new LocalStorage();
-    // ui.createLotsSection ();
-    //get all lots
-//     lotsCatolog.getLots().then(lots =>  {
-//         ui.displayLots(lots, 6);
-//         LocalStorage.saveLots(lots);
-//         // const sellPage = new SellPage();
-//         // sellPage.displaySellForm();
-//     }).then(() => {
-//         ui.addLots();
-//         ui.getBagButtons();
-//     });
-//
-});
