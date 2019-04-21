@@ -3,6 +3,21 @@
 
 //getting lots
 export class Lots {
+    async getMenu() {
+        try {
+            let result = await fetch("app/js/json/lots.json"), //settle the request
+                data = await result.json();
+            let menu = data.categories;
+            menu = menu.map(el => {
+                const {main_ctg, sub_ctg} = el;
+                return {main_ctg, sub_ctg}
+            });
+            return menu
+        }catch (error) {
+            alert("Something goes Wrong!");
+        }
+
+    }
     async getLots() {
         try {
             //async always return a Promise, await => till Promise is settle ant then return the result //ajax request
@@ -13,10 +28,10 @@ export class Lots {
             lots = lots.map( el => {
                 const id = el.lot_id;
                 const {title,description,start_price,end_date,minimum_bid_amount, condition} = el.lot_info;
-                const {main, sub} = el.lot_info.category;
+                const {main_ctg, sub_ctg} = el.lot_info.category;
                 const image = el.lot_info.images.primary_url;
                 const images = el.lot_info.images.extra_url;
-                return {id,title,description,start_price,end_date,minimum_bid_amount, condition, main, sub, image, images}
+                return {id,title,description,start_price,end_date,minimum_bid_amount, condition, main_ctg, sub_ctg, image, images}
             });
 
             return lots;
@@ -65,6 +80,7 @@ export class LocalStorage {
 //static method could be without extantion the class
     static saveLots (lots) {
         localStorage.setItem("lots", JSON.stringify(lots));
+
     }
 }
 

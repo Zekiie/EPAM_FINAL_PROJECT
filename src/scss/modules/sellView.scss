@@ -37,86 +37,105 @@ input {
 }
 
 .no-required-field {
-  width: 62%;
-  display: grid;
+  width: 90%;
+  //border: 1px solid;
+  display: flex;
+  flex-wrap: wrap;
+  //width: 62%;
+  //display: grid;
   font-size: 1.2em;
-  grid-template-columns: 1fr 1fr;
+  //grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 20px;
-  &_input {
+  input {
     align-items: start;
-    @include size(40%, 40px);
-    margin: 15px;
+    @include size(30%, 40px);
+    margin: 15px 10px ;
     &[value] {
       color: $primary-color;
     }
   }
-}
-.lot_date {
-  margin-left: 15px;
-}
-.photo {
-  display: grid;
-  grid-template-columns: 4fr 1fr 1fr  1fr 1fr  1fr ;
-  font-size: 1.2em;
-  &_input{
-    display: none;
-  }
-  &_label {
-    @include size(4em);
-    display: block;
-    position: relative;
-    border: 2px solid #909399;
-    margin: 9px;
-    &:after {
-      //border: 1px solid black;
-      @include pseudo;
-      @include size(90%);
-     background: url("http://webgrity.com/wp-content/themes/aaika/images/default.png") no-repeat center center/cover;
-      opacity: 0.8;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    input {
+      margin: 10px 20px ;
     }
   }
-  &_info {
-    grid-column-start: 2;
-    grid-column-end: 6;
-    font-size: 16px;
-    margin-top: 20px;
-    color: #f7572c;
+}
+.lot {
+  &_date {
+    margin-left: 15px;
   }
-  .lnr-star {
-    font-size: inherit;
-    color: $primary-color;
+  &_time {
+    margin-left: 25px;
   }
 }
-.lot_descript {
-  font-size: 1.2em;
-  margin: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-textarea {
-  @include size(68%, 200px)
-}
-.form-details {
-  @include size(30%, 100%)
-}
-.lot_submit {
-  width: 25%;
-  padding: 2%;
-  font-size: 1.2em;
-  margin: 20px auto;
-  background: $primary-color;
-  color: $default-color;
-  border: none;
-  cursor: pointer;
-  &:hover {
-    box-shadow: 0 0 7px 1px #fff22a;
-    transition: 0.2s;
-    transform: scale(1.1);
+  .photo {
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr  1fr 1fr  1fr ;
+    font-size: 1.2em;
+    &_input{
+      display: none;
+    }
+    &_label {
+      @include size(4em);
+      display: block;
+      position: relative;
+      border: 2px solid #909399;
+      margin: 9px;
+      &:after {
+        //border: 1px solid black;
+        @include pseudo;
+        @include size(90%);
+        background: url("http://webgrity.com/wp-content/themes/aaika/images/default.png") no-repeat center center/cover;
+        opacity: 0.8;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    &_info {
+      grid-column-start: 2;
+      grid-column-end: 6;
+      font-size: 16px;
+      margin-top: 20px;
+      color: #f7572c;
+    }
+    .lnr-star {
+      font-size: inherit;
+      color: $primary-color;
+    }
+  }
+  .lot_descript {
+    font-size: 1.2em;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  textarea {
+    @include size(68%, 200px)
+  }
+  .form-details {
+    @include size(30%, 100%)
+  }
+  .lot_submit {
+    width: 25%;
+    padding: 2%;
+    font-size: 1.2em;
+    margin: 20px auto;
+    background: $primary-color;
+    color: $default-color;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 0 7px 1px #fff22a;
+      transition: 0.2s;
+      transform: scale(1.1);
+    }
+
   }
 
-}

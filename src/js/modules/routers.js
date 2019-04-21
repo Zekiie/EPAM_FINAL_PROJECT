@@ -15,6 +15,7 @@ function handleHash() {
         controller[routerName](params);
     } else if (name === '') {
         controller.mainRoute();
+
     }
 }
 

@@ -4,27 +4,44 @@ import {UI} from "../views/uiLots";
 import {Slider} from "./slider";
 import {FullLotsInfo} from "../views/fullLotsView";
 import {lotsCatalog} from "../json/lots";
+import {MenuView} from "./menu";
+import {Search} from "./search";
 
 const ui = new UI(),
     lotsCatolog = new Lots(),
-    slider = new Slider();
+    slider = new Slider(),
+    search = new Search();
+
+
+window.addEventListener('load', () => {
+    const menu = new MenuView();
+    lotsCatolog.getMenu().then(cat => {
+        console.log(cat);
+        menu.renderMenu(cat);
+        search.goSearch(cat)
+    })
+});
 
 export class Controller {
+
     async mainRoute() {
-        slider.showSlider();
+        await slider.showSlider();
         await ui.createLotsSection();
         lotsCatolog.getLots().then(lots => {
             ui.displayLots(lots, 6);
             LocalStorage.saveLots(lots);
         })
-        // const sellPage = new SellPage();
-        // sellPage.displaySellForm();
-    }
 
+}
     async sellRoute() {
+        slider.hideSlider();
         const sellPage = new SellPage();
-        sellPage.displaySellForm();
-        await slider.hideSlider();
+        await lotsCatolog.getMenu().then(cat => {
+            sellPage.displaySellForm(cat);
+        });
+
+        sellPage.addToCatalog();
+
     }
 
     async infoRoute(params) {

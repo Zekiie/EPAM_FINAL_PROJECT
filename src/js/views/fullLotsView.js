@@ -1,5 +1,6 @@
 export class FullLotsInfo {
     async fullCardTemplate(lot) {
+        const images = (lot) => lot.images.map((img,i) => `<div class="image_list-item"><img src="${img}" alt="${lot.title}" id=${i} class="image_list"></div>`);
         const root = document.getElementById('root');
         root.innerHTML = `
        <section class="full-card">
@@ -10,10 +11,10 @@ export class FullLotsInfo {
                     <img src="${lot.image}" alt="${lot.title}" class="selected_img" id='main'>
                 </div>
                 <div class="image_list">
-                    <div class="image_list-item"><img src="${lot.image}" alt="${lot.title}" class="image_list active" id='main' > </div>
-                    <div class="image_list-item"><img src="${lot.images[0]}" alt="${lot.title}" id='2' class="image_list" id='3'></div>
-                    <div class="image_list-item"><img src="${lot.images[1]}" alt="${lot.title}" class="image_list" id='3'></div>
-                    <div class="image_list-item"><img src="${lot.images[2]}" alt="${lot.title}" class="image_list" id='4'></div>
+                    <div class="image_list-item">
+                    <img src="${lot.image}" alt="${lot.title}" class="image_list active" id='main' >                    </div>
+                    ${images(lot).join('')}
+                    
                 </div>
             </div>
             <div class="full-card_info">

@@ -1,4 +1,5 @@
 import {Router} from './routers';
+import {MenuView} from "./menu";
 
 
 
