@@ -21,21 +21,35 @@
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
+
   .btn-slider {
     width: 80%;
+  }
+  .search_btn {
+    width: 30%;
   }
 }
 
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
+  .main-menu {
+    flex-wrap: wrap;
+  }
+  .search_btn {
+    width: 30%;
+  }
 
 }
 
 
 
 @media (min-width: 481px) and (max-width: 767px) {
-
+  .main-menu {
+    flex-wrap: wrap;
+  }
+  .search_btn {
+    width: 30%;
+  }
 
 }
 
@@ -43,6 +57,8 @@
 
 @media (min-width: 320px) and (max-width: 480px) {
 
-
+  .main-menu {
+    flex-wrap: wrap;
+  }
 
 }

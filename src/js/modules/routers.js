@@ -14,7 +14,7 @@ function handleHash() {
         const routerName = name + 'Route';
         controller[routerName](params);
     } else if (name === '') {
-        controller.mainRoute();
+        controller.mainRoute(params);
 
     }
 }

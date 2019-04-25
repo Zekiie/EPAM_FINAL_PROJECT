@@ -6,15 +6,18 @@ import {FullLotsInfo} from "../views/fullLotsView";
 import {lotsCatalog} from "../json/lots";
 import {MenuView} from "./menu";
 import {Search} from "./search";
+import {Pagination} from "./pagination-v2";
 
 const ui = new UI(),
     lotsCatolog = new Lots(),
     slider = new Slider(),
-    search = new Search();
+    search = new Search(),
+    pagination = new Pagination();
 
 
 window.addEventListener('load', () => {
     const menu = new MenuView();
+
     lotsCatolog.getMenu().then(cat => {
         console.log(cat);
         menu.renderMenu(cat);
@@ -24,13 +27,16 @@ window.addEventListener('load', () => {
 
 export class Controller {
 
-    async mainRoute() {
-        await slider.showSlider();
+    async mainRoute(params) {
+
         await ui.createLotsSection();
         lotsCatolog.getLots().then(lots => {
-            ui.displayLots(lots, 6);
+            console.log(params.id)
+            pagination.getPagination(lots, ui.displayLots, 6);
+            // ui.displayLots(lots, 6);
             LocalStorage.saveLots(lots);
         })
+        slider.showSlider();
 
 }
     async sellRoute() {

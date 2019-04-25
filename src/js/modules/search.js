@@ -1,14 +1,17 @@
 export class Search {
     goSearch(cat, lots) {
         const input = document.getElementById("search-input");
+        const btn_search = document.getElementById("search-btn");
         const list = (style) => document.getElementById('search-list').style.display = style;
         let categ = [];
         let ul = document.getElementById("list");
 
+        btn_search.addEventListener('click', (event) => {
+            event.preventDefault();
+        });
         cat.forEach((el) => {
             let li = document.createElement('li');
             let a = document.createElement('a');
-
             a.setAttribute('href', `/#${el.main_ctg}`);
             a.innerText = `${el.main_ctg}`;
             li.classList.add("list_item");
@@ -45,6 +48,7 @@ export class Search {
                         el.classList.remove('hide');
                     }
                 })
+
             } else {
                 categ.forEach((el) => {
                     el.classList.remove('hide'); //очистка поиска
@@ -52,7 +56,6 @@ export class Search {
                 })
             }
         };
-
         input.addEventListener("input", search);
     }
 }

@@ -7,7 +7,7 @@ export class MenuView {
                 <li class="submenu_item">
                         <a href="/#${item.main_ctg}" class="submenu_item-a">${item.main_ctg}</a>
                         <ul class="sub-submenu">
-                        ${item.sub_ctg.map(el => `<li><a href="/#${item.main_ctg}/${el}">${el}</a></li>`)}
+                        ${item.sub_ctg.map(el => `<li><a href="/#${item.main_ctg}/${el}">${el}</a></li>`).join('')}
                         </ul>
                      </li>
                  

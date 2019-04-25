@@ -11,11 +11,14 @@ export class UI {
         <div class="container" id="card-container"></div>
         <div class="pagination">
             <div class="pagination_block">
-                <span class="pagination_btn" id="button_prev">
+                <span class="pagination_btn prev" id="button_prev">
                     <span class="lnr lnr-chevron-left"></span>
+                    Previous
                 </span>
                 <span id="page_number" class="pagination_number"></span>
-                <span class="pagination_btn" id="button_next">
+               
+                <span class="pagination_btn next" id="button_next">
+                 Next 
                      <span class="lnr lnr-chevron-right"></span>
                 </span>
             </div>
@@ -28,7 +31,7 @@ export class UI {
        `
     }
     displayLots(lots, itemPerPage) {
-        let template = (lots) => {
+        // let template = (lots) => {
         return `
                 <article class="card" data-id="${lots.id}">
                 <a href="/#info/${lots.id}">
@@ -50,9 +53,9 @@ export class UI {
                 </div>
             </article>
  `
-        };
-        let pagination = new Pagination();
-        pagination.getPagination(lots, template, itemPerPage);
+            // return template(lots);
+        // };
+
     }
     getBagButtons() {
 

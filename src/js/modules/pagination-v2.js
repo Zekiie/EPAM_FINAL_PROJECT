@@ -31,6 +31,7 @@ export class Pagination {
 
         let changePage = (page, container) => {
             const cardContainer = document.getElementById('card-container');
+             let     lotsSave = [].push(obj);
             // const ui = new UI();
             if (page < 1) {
                 page = 1;
@@ -40,9 +41,13 @@ export class Pagination {
             }
 
             cardContainer.innerHTML = '';
-
+            console.log(obj);
             for (let i = (page - 1) * records_per_page; i < (page * records_per_page) && i < obj.length; i++) {
                 // cardContainer.innerHTML += lotTemplate(lotsCatalog[i]);
+                // lotsSave.push(obj[i]);
+                // console.log();
+
+                localStorage.setItem("pagination", JSON.stringify(lotsSave));
                 cardContainer.innerHTML += ui(obj[i]);
             }
             checkButtonOpacity();
@@ -54,6 +59,7 @@ export class Pagination {
                 current_page--;
                 changePage(current_page);
                 pageNumbers(pageMove(+current_page, numPages()));
+                // location.hash = `/${current_page}`;
             }
         };
 
@@ -62,6 +68,7 @@ export class Pagination {
                 current_page++;
                 changePage(current_page);
                 pageNumbers(pageMove(+current_page, numPages()));
+                // location.hash = `/${current_page}`;
             }
         };
 
@@ -69,7 +76,7 @@ export class Pagination {
             document.addEventListener('click', (e) => {
                 if (e.target.nodeName === "SPAN" && e.target.classList.contains("clickPageNumber")) {
                     current_page = e.target.textContent;
-                    console.log(typeof current_page);
+                    console.log(typeof e.target.nodeName);
                     changePage(current_page);
                     pageMove(+current_page);
                     pageNumbers(pageMove(+current_page, numPages()));
@@ -108,7 +115,7 @@ export class Pagination {
         let pageNumbers = (arr) => {
             let pageNumber = document.getElementById('page_number');
             pageNumber.innerHTML = "";
-            arr.map((el) => pageNumber.innerHTML += `<span class='clickPageNumber'>${el} </span>`)
+            arr.map((el) => pageNumber.innerHTML += `<span class='clickPageNumber'>${el} </span>`);
             selectedPage()
         };
         changePage(1);

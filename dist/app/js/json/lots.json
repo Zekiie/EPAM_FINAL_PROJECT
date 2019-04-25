@@ -2,6 +2,7 @@
   "products": [
     {
       "lot_id": 1,
+      "email": "",
       "lot_info": {
         "category": [
           {
@@ -15,9 +16,10 @@
         "start_price": "100",
         "minimum_bid_amount": 1,
         "end_date": "20.04.2019",
+        "end_time": "9:00",
         "images": {
           "primary_url": "app/img/goods/antiques.jpg",
-          "extra_url": ["app/img/goods/antiques.jpg", ""   ]
+          "extra_url": []
         }
       }
     },
@@ -384,6 +386,79 @@
           "extra_url": []
         }
       }
+    }
+  ],
+  "categories": [
+    {
+      "main_ctg": "Electronics",
+      "sub_ctg": [
+       "Cell Phones & Accessories",
+       "Smart Watches",
+       "Video Games & Accessories",
+        "Computers & Tablets",
+       "Digital Cameras & Photo"
+      ]
+    },
+    {
+      "main_ctg": "Fashion",
+      "sub_ctg": [
+        "Women's Clothing",
+        "Women's Shoes",
+        "Men's Clothing",
+        "Men's Shoes",
+        "Watches, Parts & Accessories"
+      ]
+    },
+    {
+      "main_ctg": "Sport",
+      "sub_ctg": [
+        "Cycling",
+       " Outdoor Sports",
+        "Hunting",
+       " Fishing",
+       " Fitness, Running & Yoga"
+      ]
+    },
+    {
+      "main_ctg": "Health & Beauty",
+      "sub_ctg": [
+        "Makeup",
+        "Health Care",
+        "Fragrances",
+        "Nail Care, Manicure & Pedicure",
+        "Hair Care & Styling"
+      ]
+    },
+    {
+      "main_ctg": "Art & Hobby",
+      "sub_ctg": [
+        "Art Supplies",
+        "Sewing",
+        "Painting",
+        "Comics",
+        "Books"
+      ]
+    },
+    {
+      "main_ctg": "Home & Garden",
+      "sub_ctg": [
+        "Tools & Workshop Equipment",
+        "Yard, Garden & Outdoor Living",
+        "Home Improvement",
+        "Baby",
+        "Kitchen, Dining & Bar",
+        "Lamps, Lighting & Ceiling Fans"
+      ]
+    },
+    {
+      "main_ctg": "New Deals",
+      "sub_ctg": [
+        "Daily Deals",
+       " Tech Deals",
+       " Fashion Deals",
+        "Health and Beauty",
+        "Sporting Goods Deals"
+      ]
     }
   ]
 }

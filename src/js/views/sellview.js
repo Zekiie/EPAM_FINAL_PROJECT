@@ -98,10 +98,11 @@ export class SellPage {
             obj = {lot_id: newId, minimum_bid_amount: minBid};
 
 
-        submit.addEventListener("click", function (event) {
+        // submit.addEventListener("click", function (event) {
+        //
+        // });
+        submit.addEventListener('click', (event) => {
             event.preventDefault()
-        });
-        submit.addEventListener('click', () => {
             addLot();
             console.log(obj);
 
