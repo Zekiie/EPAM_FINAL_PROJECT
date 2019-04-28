@@ -15,7 +15,7 @@
         "condition": "old",
         "start_price": "100",
         "minimum_bid_amount": 1,
-        "end_date": "20.04.2019",
+        "end_date": "2019-04-30",
         "end_time": "9:00",
         "images": {
           "primary_url": "app/img/goods/antiques.jpg",
@@ -58,7 +58,8 @@
         "condition": "",
         "start_price": "",
         "minimum_bid_amount": 1,
-        "end_date": "",
+        "end_date": "2019-05-01",
+        "end_time": "21:00",
         "images": {
           "primary_url": "https://images.pexels.com/photos/842950/pexels-photo-842950.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
           "extra_url": []

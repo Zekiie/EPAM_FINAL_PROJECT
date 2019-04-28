@@ -23,17 +23,17 @@ export class Lots {
             //async always return a Promise, await => till Promise is settle ant then return the result //ajax request
             let result = await fetch("app/js/json/lots.json"), //settle the request
                 data = await result.json();
-
+            console.log()
             let lots = data.products;
             lots = lots.map( el => {
-                const id = el.lot_id;
-                const {title,description,start_price,end_date,minimum_bid_amount, condition} = el.lot_info;
+                const lot_id = el.lot_id;
+                const {email,title,description,start_price,end_date,end_time,minimum_bid_amount, condition} = el.lot_info;
                 const {main_ctg, sub_ctg} = el.lot_info.category;
                 const image = el.lot_info.images.primary_url;
                 const images = el.lot_info.images.extra_url;
-                return {id,title,description,start_price,end_date,minimum_bid_amount, condition, main_ctg, sub_ctg, image, images}
+                return {lot_id,email,title,description,start_price,end_date,end_time,minimum_bid_amount, condition, main_ctg, sub_ctg, image, images}
             });
-
+            localStorage.setItem("lots", JSON.stringify(lots));
             return lots;
 
         } catch (error) {
@@ -83,7 +83,10 @@ export class LocalStorage {
 
     }
 }
-
+// lotsCatolog.getLots().then(lots => {
+//     console.log(params.id)
+//     LocalStorage.saveLots(lots);
+// })
 // document.addEventListener('DOMContentLoaded', () => {
 //     //two instance for class, no need storage instance, because there will be only static methods
 //     const ui = new UI(),

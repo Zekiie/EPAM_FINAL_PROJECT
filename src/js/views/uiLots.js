@@ -24,7 +24,7 @@ export class UI {
             </div>
         </div>
         <div class="bottom-btn">
-            <a href="/sell" class="bottom-btn_sell sell" >Sell here!</a>
+            <a href="/#sell" class="bottom-btn_sell sell" >Sell here!</a>
             <button class="bottom-btn_info">Explore more!</button>
         </div>
     </section>
@@ -34,12 +34,12 @@ export class UI {
         // let template = (lots) => {
         return `
                 <article class="card" data-id="${lots.id}">
-                <a href="/#info/${lots.id}">
+                <a href="/#info/${lots.lot_id}">
                 <img src="${lots.image}" alt="${lots.title}" class="card_img">
                 <div class="card_details">
                     <h2>${lots.title}</h2>
                     <p>$${lots.start_price}</p>
-                    <div id="description-${lots.id}" class="description">
+                    <div id="description-${lots.lot_id}" class="description">
                        ${lots.description}
                     </div>
                 </div>
@@ -47,9 +47,9 @@ export class UI {
                 <div class="card_btn">
                     <label for="bid"></label>
                     <input id="bid" type="number" class="bid-input">
-                    <input type="button" id="addBid-${lots.id}" value="Bid" class="bid-btn">
+                    <input type="button" id="addBid-${lots.lot_id}" value="Bid" class="bid-btn">
                     <label for="info" class="info-label"></label>
-                    <a href="/#info/${lots.id}" id="info-${lots.id}"  class="info-btn"> More details </a>
+                    <a href="/#info/${lots.lot_id}" id="info-${lots.lot_id}"  class="info-btn"> More details </a>
                 </div>
             </article>
  `

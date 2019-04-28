@@ -31,7 +31,7 @@ export class Pagination {
 
         let changePage = (page, container) => {
             const cardContainer = document.getElementById('card-container');
-             let     lotsSave = [].push(obj);
+             let     lotsSave;
             // const ui = new UI();
             if (page < 1) {
                 page = 1;
@@ -45,9 +45,9 @@ export class Pagination {
             for (let i = (page - 1) * records_per_page; i < (page * records_per_page) && i < obj.length; i++) {
                 // cardContainer.innerHTML += lotTemplate(lotsCatalog[i]);
                 // lotsSave.push(obj[i]);
-                // console.log();
+                console.log();
 
-                localStorage.setItem("pagination", JSON.stringify(lotsSave));
+                // localStorage.setItem("pagination", JSON.stringify(lotsSave));
                 cardContainer.innerHTML += ui(obj[i]);
             }
             checkButtonOpacity();

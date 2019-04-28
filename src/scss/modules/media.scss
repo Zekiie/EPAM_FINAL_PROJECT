@@ -1,9 +1,10 @@
 @media (min-width: 1401px) {
   .slider {
     height: 500px;
+    font-size: 2em;
   }
   .btn-slider {
-    width: 30%;
+    width: 50%;
   }
   .submenu {
     top: 110%;
@@ -14,7 +15,7 @@
 @media (min-width: 1025px) and (max-width: 1200px) {
 
   .btn-slider {
-    width: 80%;
+    width: 90%;
   }
 
 }
@@ -23,10 +24,19 @@
 @media (min-width: 768px) and (max-width: 1024px) {
 
   .btn-slider {
-    width: 80%;
+    width: 90%;
   }
   .search_btn {
     width: 30%;
+  }
+  .add-more-lots{
+    width: 60%;
+    &_btn {
+      font-size: 1.2em;
+    }
+    &_text {
+      font-size: 1.8em;
+    }
   }
 }
 
@@ -36,19 +46,46 @@
     flex-wrap: wrap;
   }
   .search_btn {
-    width: 30%;
+    width: 60%;
+  }
+  .add-more-lots {
+    width: 60%;
+
+    &_btn {
+      font-size: 1.2em;
+    }
+
+    &_text {
+      font-size: 1.8em;
+    }
   }
 
 }
-
-
 
 @media (min-width: 481px) and (max-width: 767px) {
   .main-menu {
     flex-wrap: wrap;
   }
+  .slider {
+    font-size: 1em;
+  }
+  .btn-slider {
+    width: 100%;
+  }
   .search_btn {
     width: 30%;
+  }
+  .add-more-lots{
+    width: 50%;
+    &_btn {
+      width: 50%;
+      font-size: 1.2em;
+      margin: 0 10px 20px 10px;
+    }
+    &_text {
+      font-size: 1.5em;
+      margin: 20px 10px;
+    }
   }
 
 }
@@ -60,5 +97,33 @@
   .main-menu {
     flex-wrap: wrap;
   }
+  .add-more-lots{
+    width: 70%;
+    &_btn {
+      width: 50%;
+      font-size: 1.2em;
+      margin: 0 10px 20px 10px;
+    }
+    &_text {
+      font-size: 1.5em;
+      margin: 20px 10px;
+    }
+  }
 
 }
+
+  @media (max-width: 320px) {
+    .add-more-lots{
+      width: 70%;
+      &_btn {
+        width: 50%;
+        font-size: 1.2em;
+        margin: 0 10px 20px 10px;
+      }
+      &_text {
+        font-size: 1.5em;
+        margin: 20px 10px;
+      }
+
+    }
+  }

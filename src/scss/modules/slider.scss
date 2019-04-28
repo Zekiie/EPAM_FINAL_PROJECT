@@ -4,11 +4,9 @@
   @include size(100%, 350px);
   position: relative;
   margin: auto;
-  //display: none;
   &_items {
     display: none;
     @include size(100%, 100%);
-
     &-info {
       display: flex;
       justify-content: space-around;
@@ -118,7 +116,7 @@
 }
 
 .btn-slider {
-  @include size(60%, 15%);
+  width: 60%;
   position: relative;
   margin: 20px 0;
   color: $default-color;

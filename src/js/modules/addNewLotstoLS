@@ -1,0 +1,93 @@
+export class AddNewLots {
+
+    addToCatalog() {
+        const id = (id) => document.getElementById(id),
+            formData = [...id('add-to-catalog')],
+            submit = id('submit'),
+            allInputs = [...document.querySelectorAll(" form input")],
+            obj ={},
+            email = id('email'),
+            title = id('title'),
+            disableAllinput = () => allInputs.forEach(input => input.disabled = true),
+            ableAllinput = () => allInputs.forEach(input => input.disabled = false);
+
+        allInputs.forEach( input => input.addEventListener('keypress', () =>  submit.disabled = true));
+
+        function validateEmail(mail, popup) {
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail) && mail !== '') {
+                popup.classList.remove("show");
+                return true
+            } else {
+                popup.classList.add("show");
+            }
+        }
+        function validateTitle(input, popup) {
+            if (input === "") {
+                popup.classList.add("show");
+            } else {
+                popup.classList.remove("show");
+                return true
+            }
+        }
+
+        function addMorePopup (){
+            id("popup-addMore").style.visibility = 'visible';
+            disableAllinput();
+
+            id('yes').addEventListener("click", () => {
+                submit.disabled = false;
+                id("popup-addMore").style.visibility = 'hidden';
+                ableAllinput();
+                console.log(title)
+            });
+            id('no').addEventListener( "click", () => location.hash = "#");
+            submit.disabled = true;
+
+        }
+
+        function createObj() {
+            const  lotsArr = JSON.parse(localStorage.getItem("lots")),
+                allId = lotsArr.map(lot => lot.lot_id),
+                minBid = 1;
+            obj.lot_id = Math.max(...allId) + 1;
+            obj.minimum_bid_amount = minBid;
+            formData.map(el => {
+                obj[[el.id]] = el.value;
+            });
+        }
+        function addLot(lot) {
+            let fullCatalog = JSON.parse(localStorage.getItem("lots"));
+            fullCatalog.push(lot);
+            localStorage.setItem("lots", JSON.stringify(fullCatalog));
+            console.log(fullCatalog)
+        }
+
+
+        email.addEventListener('change', () => validateEmail(email.value, id("myPopup-email")));
+        // title.addEventListener('change', (e) => validateTitle(e.target.value, id("myPopup-title")));
+
+
+        submit.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (validateEmail(email.value, id("myPopup-email"))) {
+                createObj();
+                addMorePopup();
+                addLot(obj);
+                console.log(obj)
+            }
+        });
+
+
+        const images = document.querySelectorAll(".photo_input");
+        const imgTag = document.createElement('img');
+
+        images.forEach(img => {
+            img.addEventListener('change', () => {
+                console.log(img.files)
+                imgTag.setAttribute("src", img.size);
+                img.appendChild(imgTag)
+            })
+        })
+        console.log(images)
+    }
+}
