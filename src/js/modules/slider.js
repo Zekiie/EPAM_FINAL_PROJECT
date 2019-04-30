@@ -13,9 +13,9 @@ export class Slider {
                     n = 1
                 }
                 node[n - 1].style.display = 'flex';
-
+                setTimeout(go, 3000)
             };
-            setInterval(go, 3000)
+
             go()
         };
 

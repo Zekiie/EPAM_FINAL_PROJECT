@@ -17,12 +17,14 @@
   .btn-slider {
     width: 90%;
   }
+  .popuptext {
+    width: 80%;
+  }
 
 }
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
-
   .btn-slider {
     width: 90%;
   }
@@ -36,6 +38,13 @@
     }
     &_text {
       font-size: 1.8em;
+    }
+  }
+  .popuptext {
+    width: 80%;
+    bottom: -170%;
+    &:after {
+      top: -50%;
     }
   }
 }
@@ -58,6 +67,9 @@
     &_text {
       font-size: 1.8em;
     }
+  }
+  .popuptext {
+    width: 80%;
   }
 
 }
@@ -86,6 +98,9 @@
       font-size: 1.5em;
       margin: 20px 10px;
     }
+  }
+  .popuptext {
+    width: 80%;
   }
 
 }

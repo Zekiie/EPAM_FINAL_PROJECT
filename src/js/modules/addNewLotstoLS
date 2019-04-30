@@ -9,11 +9,13 @@ export class AddNewLots {
             email = id('email'),
             title = id('title'),
             disableAllinput = () => allInputs.forEach(input => input.disabled = true),
-            ableAllinput = () => allInputs.forEach(input => input.disabled = false);
+            ableAllinput = () => allInputs.forEach(input => input.disabled = false),
+       images = document.querySelectorAll(".photo_input"),
+       imgTag = [...document.querySelectorAll('.image-view')];
 
-        allInputs.forEach( input => input.addEventListener('keypress', () =>  submit.disabled = true));
+        // allInputs.forEach( input => input.addEventListener('keypress', () =>  submit.disabled = true));
 
-        function validateEmail(mail, popup) {
+       function validateEmail(mail, popup) {
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail) && mail !== '') {
                 popup.classList.remove("show");
                 return true
@@ -26,7 +28,12 @@ export class AddNewLots {
                 popup.classList.add("show");
             } else {
                 popup.classList.remove("show");
-                return true
+                submit.disabled = true
+            }
+        }
+       function imgByDefault (arr) {
+            if(arr.every(el => el.files === '')) {
+                arr[0].primary_url = 'app/img/auction-icon.png'
             }
         }
 
@@ -49,6 +56,8 @@ export class AddNewLots {
             const  lotsArr = JSON.parse(localStorage.getItem("lots")),
                 allId = lotsArr.map(lot => lot.lot_id),
                 minBid = 1;
+
+
             obj.lot_id = Math.max(...allId) + 1;
             obj.minimum_bid_amount = minBid;
             formData.map(el => {
@@ -75,19 +84,27 @@ export class AddNewLots {
                 addLot(obj);
                 console.log(obj)
             }
+            console.log(obj)
         });
 
 
-        const images = document.querySelectorAll(".photo_input");
-        const imgTag = document.createElement('img');
 
-        images.forEach(img => {
-            img.addEventListener('change', () => {
-                console.log(img.files)
-                imgTag.setAttribute("src", img.size);
-                img.appendChild(imgTag)
+
+       [...images].map((img, i) => {
+            let path;
+            img.addEventListener('change', (e) => {
+                if (e.target.files[0]) {
+                    const reader = new FileReader();
+                    reader.addEventListener('load', () => {
+                        imgTag[i].src = reader.result;
+                    });
+                    path = `app/img/goods/${e.target.value.match(/[^\\]*\.(\w+)/gm).join('')}`;
+                    obj.image[i] =  `app/img/goods/${e.target.value.match(/[^\\]*\.(\w+)/gm).join('')}`;
+                    reader.readAsDataURL(e.target.files[0]);
+                }
             })
-        })
-        console.log(images)
+        });
+
+        console.log(obj)
     }
 }

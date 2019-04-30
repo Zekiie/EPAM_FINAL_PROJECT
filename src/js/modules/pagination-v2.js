@@ -41,13 +41,7 @@ export class Pagination {
             }
 
             cardContainer.innerHTML = '';
-            console.log(obj);
             for (let i = (page - 1) * records_per_page; i < (page * records_per_page) && i < obj.length; i++) {
-                // cardContainer.innerHTML += lotTemplate(lotsCatalog[i]);
-                // lotsSave.push(obj[i]);
-                console.log();
-
-                // localStorage.setItem("pagination", JSON.stringify(lotsSave));
                 cardContainer.innerHTML += ui(obj[i]);
             }
             checkButtonOpacity();
@@ -68,6 +62,7 @@ export class Pagination {
                 current_page++;
                 changePage(current_page);
                 pageNumbers(pageMove(+current_page, numPages()));
+                console.log("works")
                 // location.hash = `/${current_page}`;
             }
         };

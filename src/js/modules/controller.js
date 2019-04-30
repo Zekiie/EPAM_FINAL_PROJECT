@@ -8,23 +8,27 @@ import {MenuView} from "./menu";
 import {Search} from "./search";
 import {Pagination} from "./pagination-v2";
 import {AddNewLots} from "./addNewLotstoLS";
+import {AuctionCart} from "../views/auctionCart";
+import {Timer} from "./timer";
 
 const ui = new UI(),
     lotsCatolog = new Lots(),
     slider = new Slider(),
     search = new Search(),
-    pagination = new Pagination();
+    pagination = new Pagination(),
+    auctionCart = new AuctionCart(),
+    timer = new Timer();
 
 
 let fullLots = JSON.parse(localStorage.getItem('lots'));
-
+// lotsCatolog.getLots();
 
 window.addEventListener('load', () => {
     const menu = new MenuView();
     lotsCatolog.getMenu().then(cat => {
         console.log(cat);
         menu.renderMenu(cat);
-        search.goSearch(cat)
+        search.goSearch(cat);
     });
 });
 
@@ -32,8 +36,8 @@ export class Controller {
 
     async mainRoute(params) {
         await ui.createLotsSection();
-        pagination.getPagination(fullLots, ui.displayLots, 6);
         slider.showSlider();
+        pagination.getPagination(fullLots, ui.displayLots, 6);
 
 }
     async sellRoute() {
@@ -44,10 +48,6 @@ export class Controller {
             sellPage.displaySellForm(cat);
             addNewLots.addToCatalog();
         });
-
-
-
-
     }
 
     async infoRoute(params) {
@@ -57,8 +57,8 @@ export class Controller {
 
                 let lot = fullLots.find(lot => lot.lot_id === id);
                 fullLotsInfo.fullCardTemplate(lot);
-                fullLotsInfo.timer(lot);
-                fullLotsInfo.imageGallery();
+                timer.timer(lot);
+                timer.imageGallery();
             }
 
 

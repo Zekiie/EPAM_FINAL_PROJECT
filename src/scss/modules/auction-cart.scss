@@ -1,0 +1,99 @@
+.win-cart {
+  // border: 1px solid black;
+  width: 35%;
+  position: absolute;
+  right: 0;
+  top: 125%;
+  padding: 10px;
+  background: #fff8f1;
+  // display:flex;
+  // flex-direction:column;
+  z-index: 1;
+  h2, h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  &_left, &_right {
+    display:flex;
+    flex-direction:column;
+  }
+  &_login {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1vw;
+    &-btn {
+      width: 20%;
+      height: 40px;
+      border: 3px solid #555;
+      background: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      &:hover {
+        color: #ffffff;
+        background: #00aeff;
+        border-color: #00aeff;
+        transition: all 0.4s ease 0s;
+      }
+    }
+  }
+}
+.win-lots {
+  // border: 1px solid black;
+  &_line {
+    border-bottom: 4px solid black;
+  }
+  &_item {
+    display: flex;
+    justify-content: space-between;
+  }
+  img {
+    width: 40%;
+    height: 50%;
+  }
+}
+.lots-detail {
+  width: 50%;
+  h3 {
+    font-size: 1.3em;
+  }
+  p {
+    font-size: 1.2em;
+  }
+  a {
+    text-transform: uppercase;
+    color: #555;
+    font-weight: bold;
+    background: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    &:hover {
+      color: red;
+    }
+  }
+}
+.win-cart_right {
+  justify-content: space-between;
+  text-align: justify;
+  p {
+    font-size: 1.2em;
+    display:flex;
+    justify-content: space-between;
+  }
+}
+.proceed-btn {
+  width: 100%;
+  height: 40px;
+  border: 3px solid #000;
+  background: #000;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #ffffff;
+  &:hover {
+    color: #ffffff;
+    background: #555;
+    border-color: #555;
+    transition: all 0.4s ease 0s;
+  }
+}

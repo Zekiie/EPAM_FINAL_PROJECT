@@ -30,7 +30,15 @@
     }
     p {
       margin: 15px 0;
+
+      //font-weight: bold;
     }
+  span {
+    font-weight:normal;
+    color: #2d2b4d;
+    font-size: 1.1rem;
+  }
+
     &-time {
       // border: 1px solid black;
       width: 100%;

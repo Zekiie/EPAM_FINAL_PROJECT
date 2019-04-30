@@ -1,8 +1,9 @@
 import {LocalStorage, Lots} from "../modules/lotsCatalog";
 import {Pagination} from "../modules/pagination-v2";
 import {SellPage} from "./sellview";
+import {Timer} from "../modules/timer";
 
-
+let timer = new Timer();
 export class UI {
     createLotsSection () {
          document.getElementById('root').innerHTML = `
@@ -31,9 +32,9 @@ export class UI {
        `
     }
     displayLots(lots, itemPerPage) {
-        // let template = (lots) => {
         return `
                 <article class="card" data-id="${lots.id}">
+                <div class="card_time-left">${timer.shortVersion(lots)}</div>
                 <a href="/#info/${lots.lot_id}">
                 <img src="${lots.image}" alt="${lots.title}" class="card_img">
                 <div class="card_details">
@@ -53,9 +54,6 @@ export class UI {
                 </div>
             </article>
  `
-            // return template(lots);
-        // };
-
     }
     getBagButtons() {
 

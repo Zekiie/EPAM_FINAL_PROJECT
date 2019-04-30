@@ -92,13 +92,21 @@ export class SellPage {
 
                         <div class="photo">
                             <span>Photo</span>
-                            <label for="primary_url" class="photo_label"></label>
+                            <label for="primary_url" class="photo_label">
+                            <img src="app/img/default.png" alt="" id="image-view-1" class="image-view">
+                            </label>
                             <input type="file" name="img" accept="image/*" id="primary_url" class="photo_input">
-                            <label for="extra_url-1" class="photo_label"></label>
+                            <label for="extra_url-1" class="photo_label"> 
+                            <img src="app/img/default.png" alt="" id="image-view-2" class="image-view">
+                            </label>
                             <input type="file" name="img" accept="image/*" id="extra_url-1" class="photo_input">
-                            <label for="extra_url-2" class="photo_label"></label>
+                            <label for="extra_url-2" class="photo_label"> 
+                            <img src="app/img/default.png" alt="" id="image-view-3" class="image-view">
+                            </label>
                             <input type="file" name="img" accept="image/*" id="extra_url-2" class="photo_input">
-                            <label for="extra_url-3" class="photo_label"></label>
+                            <label for="extra_url-3" class="photo_label"> 
+                            <img src="app/img/default.png" alt="" id="image-view-3" class="image-view">
+                            </label>
                             <input type="file" name="img" accept="image/*" id="extra_url-3" class="photo_input">
                             <p class="photo_info"><span class="lnr lnr-star"></span> Your first image will appear in
                                 search results!</p>
@@ -126,5 +134,6 @@ export class SellPage {
                 
                 `
     }
+
 
 }
