@@ -166,7 +166,8 @@
 }
 
 .win-message {
-  width: 100%;
+  visibility: hidden;
+  width: 90%;
   height: 100%;
   padding: 10px;
   background: #2d353d;
@@ -182,5 +183,6 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
 
 

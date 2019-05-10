@@ -1,21 +1,24 @@
 export class AddNewLots {
 
-    addToCatalog() {
-        const id = (id) => document.getElementById(id),
-            formData = [...id('add-to-catalog')],
-            submit = id('submit'),
-            allInputs = [...document.querySelectorAll(" form input")],
-            obj ={},
-            email = id('email'),
-            title = id('title'),
-            disableAllinput = () => allInputs.forEach(input => input.disabled = true),
-            ableAllinput = () => allInputs.forEach(input => input.disabled = false),
-       images = document.querySelectorAll(".photo_input"),
-       imgTag = [...document.querySelectorAll('.image-view')];
+    addToCatalog(cat) {
+        const id = (id) => document.getElementById(id);
+        const formData = [...id('add-to-catalog')];
+        const submit = id('submit');
+        const allInputs = [...document.querySelectorAll(" form input")];
+        const obj = {};
+        const email = id('email');
+        const title = id('title');
+        const disableAllinput = () => allInputs.forEach(input => input.disabled = true);
+        const ableAllinput = () => allInputs.forEach(input => input.disabled = false);
+        const images = document.querySelectorAll(".photo_input");
+        const imgTag = [...document.querySelectorAll('.image-view')];
+        const arrImg = [];
+        const catOption = document.getElementById('main_ctg');
+        const subOption = document.getElementById('sub_ctg');
 
         // allInputs.forEach( input => input.addEventListener('keypress', () =>  submit.disabled = true));
 
-       function validateEmail(mail, popup) {
+        function validateEmail(mail, popup) {
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail) && mail !== '') {
                 popup.classList.remove("show");
                 return true
@@ -23,6 +26,7 @@ export class AddNewLots {
                 popup.classList.add("show");
             }
         }
+
         function validateTitle(input, popup) {
             if (input === "") {
                 popup.classList.add("show");
@@ -31,13 +35,20 @@ export class AddNewLots {
                 submit.disabled = true
             }
         }
-       function imgByDefault (arr) {
-            if(arr.every(el => el.files === '')) {
+
+        function selectInput(select) {
+            const sub = cat.find(el => el.main_ctg === select.value);
+            const optionSub = () => sub.sub_ctg.map(_ => `<option value="${_}">${_}</option>`).join('');
+            subOption.innerHTML = optionSub();
+        }
+
+        function imgByDefault(arr) {
+            if (arr.every(el => el.files === '')) {
                 arr[0].primary_url = 'app/img/auction-icon.png'
             }
         }
 
-        function addMorePopup (){
+        function addMorePopup() {
             id("popup-addMore").style.visibility = 'visible';
             disableAllinput();
 
@@ -47,23 +58,23 @@ export class AddNewLots {
                 ableAllinput();
                 console.log(title)
             });
-            id('no').addEventListener( "click", () => location.hash = "#");
+            id('no').addEventListener("click", () => location.hash = "#");
             submit.disabled = true;
 
         }
 
         function createObj() {
-            const  lotsArr = JSON.parse(localStorage.getItem("lots")),
+            const lotsArr = JSON.parse(localStorage.getItem("lots")),
                 allId = lotsArr.map(lot => lot.lot_id),
                 minBid = 1;
-
-
+            obj.images = arrImg;
             obj.lot_id = Math.max(...allId) + 1;
             obj.minimum_bid_amount = minBid;
             formData.map(el => {
                 obj[[el.id]] = el.value;
             });
         }
+
         function addLot(lot) {
             let fullCatalog = JSON.parse(localStorage.getItem("lots"));
             fullCatalog.push(lot);
@@ -74,6 +85,7 @@ export class AddNewLots {
 
         email.addEventListener('change', () => validateEmail(email.value, id("myPopup-email")));
         // title.addEventListener('change', (e) => validateTitle(e.target.value, id("myPopup-title")));
+        catOption.addEventListener('change', () => selectInput(catOption));
 
 
         submit.addEventListener('click', (event) => {
@@ -88,10 +100,9 @@ export class AddNewLots {
         });
 
 
-
-
-       [...images].map((img, i) => {
+        [...images].map((img, i) => {
             let path;
+
             img.addEventListener('change', (e) => {
                 if (e.target.files[0]) {
                     const reader = new FileReader();
@@ -99,7 +110,9 @@ export class AddNewLots {
                         imgTag[i].src = reader.result;
                     });
                     path = `app/img/goods/${e.target.value.match(/[^\\]*\.(\w+)/gm).join('')}`;
-                    obj.image[i] =  `app/img/goods/${e.target.value.match(/[^\\]*\.(\w+)/gm).join('')}`;
+                    obj.image = `app/img/goods/${e.target.value.match(/[^\\]*\.(\w+)/gm).join('')}`;
+                    arrImg.push(path);
+                    console.log(arrImg)
                     reader.readAsDataURL(e.target.files[0]);
                 }
             })
@@ -107,4 +120,5 @@ export class AddNewLots {
 
         console.log(obj)
     }
+
 }

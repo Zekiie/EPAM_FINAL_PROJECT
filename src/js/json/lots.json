@@ -38,7 +38,7 @@
         "condition": "old",
         "start_price": "100",
         "minimum_bid_amount": 1,
-        "end_date": "20.09.2019",
+        "end_date": "2019-09-30",
         "end_time": "9:00",
         "images": {
           "primary_url": "app/img/goods/antiques.jpg",
@@ -61,7 +61,7 @@
         "condition": "Used",
         "start_price": "500",
         "minimum_bid_amount": 1,
-        "end_date": "01.05.2019",
+        "end_date": "2019-05-25",
         "end_time": "9:00",
         "images": {
           "primary_url": "app/img/goods/iphone.png",
@@ -84,7 +84,7 @@
         "condition": "Used",
         "start_price": "200",
         "minimum_bid_amount": 1,
-        "end_date": "01.05.2019",
+        "end_date": "2019-05-27",
         "end_time": "9:00",
         "images": {
           "primary_url": "https://images.pexels.com/photos/842950/pexels-photo-842950.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
@@ -107,7 +107,7 @@
         "condition": "Used",
         "start_price": "8.99",
         "minimum_bid_amount": 1,
-        "end_date": "01.05.2019",
+        "end_date": "2019-05-10",
         "end_time": "9:00",
         "images": {
           "primary_url": "https://images.pexels.com/photos/1279107/pexels-photo-1279107.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",

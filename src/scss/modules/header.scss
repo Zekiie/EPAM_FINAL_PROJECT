@@ -14,7 +14,9 @@ nav{
   font-size: 1.1em;
   color: $mainFontColor;
   cursor: pointer;
-  a:hover {
+  a:hover,
+  a:active,
+  a:focus {
     color: $primary-color;
   }
   &_logo {
@@ -80,7 +82,7 @@ nav{
     margin-top: 5px;
     padding: 5px 20px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 0.8em;
     border: none;
     &:hover {
       background: rgba(49, 176, 224, 0.16);
@@ -119,6 +121,7 @@ nav{
       text-align: center;
       background: $default-color;
       padding: 5px 0;
+      font-size: 0.8em;
     }
     &-a:before {
       @include pseudo;

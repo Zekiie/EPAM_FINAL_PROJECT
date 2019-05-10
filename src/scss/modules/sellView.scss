@@ -59,12 +59,13 @@ input, select {
   font-size: 1.2em;
   input, select {
     @include size(65%, 35px);
+    font-size: 0.6em;
   }
   &_time {
     margin-left: 25px;
   }
   &_date {
-    font-size: 1em;
+    font-size: 0.6em;
   }
 }
   .photo {
@@ -113,7 +114,16 @@ input, select {
     @include size(68%, 200px)
   }
   .form-details {
-    @include size(30%, 100%)
+    //position: fixed;
+    @include size(25%, 100%);
+    margin-top: 10%;
+    p {
+      margin: 10px 0;
+      text-align: justify;
+      span {
+        color: #f7572c;
+      }
+    }
   }
   .lot_submit {
     width: 25%;
@@ -219,6 +229,7 @@ input, select {
     }
   }
 }
+
 
 
 

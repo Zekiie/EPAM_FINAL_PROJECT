@@ -29,33 +29,7 @@
     width: 90%;
   }
   .search_btn {
-    width: 30%;
-  }
-  .add-more-lots{
-    width: 60%;
-    &_btn {
-      font-size: 1.2em;
-    }
-    &_text {
-      font-size: 1.8em;
-    }
-  }
-  .popuptext {
-    width: 80%;
-    bottom: -170%;
-    &:after {
-      top: -50%;
-    }
-  }
-}
-
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  .main-menu {
-    flex-wrap: wrap;
-  }
-  .search_btn {
-    width: 60%;
+    width: 20%;
   }
   .add-more-lots {
     width: 60%;
@@ -70,75 +44,221 @@
   }
   .popuptext {
     width: 80%;
-  }
+    bottom: -170%;
 
+    &:after {
+      top: -50%;
+    }
+  }
 }
 
-@media (min-width: 481px) and (max-width: 767px) {
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .main-menu {
     flex-wrap: wrap;
   }
-  .slider {
-    font-size: 1em;
-  }
-  .btn-slider {
-    width: 100%;
-  }
+
   .search_btn {
     width: 30%;
   }
-  .add-more-lots{
-    width: 50%;
+  .sell-section {
+    font-size: 0.9em;
+  }
+  .add-more-lots {
+    width: 60%;
+
     &_btn {
-      width: 50%;
       font-size: 1.2em;
-      margin: 0 10px 20px 10px;
     }
+
     &_text {
-      font-size: 1.5em;
-      margin: 20px 10px;
+      font-size: 1.8em;
+    }
+  }
+  .lot {
+    select {
+      font-size: 0.8em;
+    }
+  }
+  .photo {
+    &_label {
+      @include size(3em)
     }
   }
   .popuptext {
     width: 80%;
   }
+  .slider {
+    &_items-img {
+      max-width: 65%;
+    }
+  }
 
 }
 
+@media (min-width: 481px) and (max-width: 767px) {
+
+}
+
+@media (max-width: 767px) {
+  .main-menu {
+    flex-wrap: wrap;
+
+    &_search {
+      width: 60%;
+      margin: 0 4% 3%;
+    }
+
+    &_buy {
+      border: none;
+    }
+  }
+  .slider {
+    font-size: 1em;
+
+    &_items-img {
+      max-width: 60%;
+    }
+  }
+  .btn-slider {
+    width: 100%;
+  }
+
+  .search_btn {
+    width: 30%;
+  }
+  .add-lots {
+    flex-direction: column-reverse;
+    //@include size(100%);
+  }
+  .sell-section {
+    width: 90%;
+    font-size: 0.9em;
+  }
+  .form-details {
+    width: 100%;
+
+    p {
+      margin: 10px 0;
+      text-align: center;
+    }
+
+  }
+  .add-more-lots {
+    width: 50%;
+
+    &_btn {
+      width: 50%;
+      font-size: 1.2em;
+      margin: 0 10px 20px 10px;
+    }
+
+    &_text {
+      font-size: 1.5em;
+      margin: 20px 10px;
+    }
+  }
+  .photo {
+    &_label {
+      @include size(3em)
+    }
+  }
+  .popuptext {
+    width: 80%;
+  }
+  .submenu {
+    flex-direction: column;
+    width: 30%;
+    top: 70%;
+    left: 10%;
+    box-shadow: -1px 16px 18px 0 rgba(0, 0, 0, .75);
+
+    &_item-a {
+      &:before {
+        border: none;
+      }
+    }
+  }
+  .contacts {
+    &_container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  iframe {
+    margin-top: 10px;
+  }
+}
 
 
 @media (min-width: 320px) and (max-width: 480px) {
 
   .main-menu {
     flex-wrap: wrap;
+
+    &_search {
+      width: 85%;
+      margin: 2% 4% 3%;
+    }
+
+    &_buy {
+      border: none;
+    }
+
+    &_logo {
+      width: 30%;
+    }
   }
-  .add-more-lots{
+  .submenu {
+    flex-direction: column;
+    width: 50%;
+    top: 35%;
+    left: 40%;
+    box-shadow: -1px 16px 18px 0 rgba(0, 0, 0, .75);
+
+    &_item-a {
+      &:before {
+        border: none;
+      }
+    }
+  }
+  .add-more-lots {
     width: 70%;
+
     &_btn {
       width: 50%;
       font-size: 1.2em;
       margin: 0 10px 20px 10px;
     }
+
     &_text {
       font-size: 1.5em;
       margin: 20px 10px;
     }
   }
+  .slider {
+    display: none;
+  }
 
 }
 
-  @media (max-width: 320px) {
-    .add-more-lots{
-      width: 70%;
-      &_btn {
-        width: 50%;
-        font-size: 1.2em;
-        margin: 0 10px 20px 10px;
-      }
-      &_text {
-        font-size: 1.5em;
-        margin: 20px 10px;
-      }
+@media (max-width: 320px) {
+  .add-more-lots {
+    width: 70%;
 
+    &_btn {
+      width: 50%;
+      font-size: 1.2em;
+      margin: 0 10px 20px 10px;
+    }
+
+    &_text {
+      font-size: 1.5em;
+      margin: 20px 10px;
     }
   }
+  .slider {
+    display: none;
+  }
+
+}

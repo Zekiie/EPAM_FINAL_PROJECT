@@ -1,16 +1,16 @@
 import {LocalStorage} from "../modules/lotsCatalog";
+import {AddNewLots} from "../modules/addNewLotstoLS";
 
 export class SellPage {
     displaySellForm(cat) {
         const root = document.getElementById('root');
         const optionMain = (cat) => cat.map(el => `<option value="${el.main_ctg}">${el.main_ctg}</option>`).join('');
-        const optionSub = (cat) => cat.map(el => el.sub_ctg.map(_ => `<option value="${_}">${_}</option>`)).join('');
+        const optionSub = (cat) => cat[0].sub_ctg.map(_ => `<option value="${_}">${_}</option>`).join('');
         const today = new Date();
         const plusOneWeek = new Date();
               plusOneWeek.setDate(today.getDate()+7);
         const defaultEndDay = dateFormat(plusOneWeek);
         const dateMin = dateFormat(today);
-
         function dateFormat(date) {
             let year = date.getFullYear();
             let month = date.getMonth() + 1;
@@ -23,7 +23,6 @@ export class SellPage {
             }
             return year + "-" + month + "-" + day;
         }
-
         root.innerHTML = `
                  <section class="add-lots">
                 
@@ -65,7 +64,7 @@ export class SellPage {
                                 </label>
                                 
                                 <select id="sub_ctg">
-                                    ${optionSub(cat)}
+                                   ${optionSub(cat)}
                                 </select>
                             </div>
 
@@ -120,7 +119,7 @@ export class SellPage {
                         <button type="submit" id="submit"  class="lot_submit">Submit</button>
                     </form>
                     <article class="form-details">
-                        <p>* Required fields to fill</p>
+                        <p><span>*</span> Required fields to fill</p>
                         <p>If the price don't set up, it'll be $1 by default.</p>
                         <p>If the date don't set up, the auction duration will be 7 days.</p>
                     </article>

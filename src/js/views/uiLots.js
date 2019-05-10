@@ -33,13 +33,13 @@ export class UI {
     }
     displayLots(lots, itemPerPage) {
         return `
-                <article class="card" data-id="${lots.id}">
-                <div class="card_time-left">${timer.shortVersion(lots)}</div>
+                <article class="card" data-id="${lots.lot_id}">
+                <div class="card_time-left" data-id="${lots.lot_id}">${timer.shortVersion(lots)}</div>
                 <a href="/#info/${lots.lot_id}">
                 <img src="${lots.image}" alt="${lots.title}" class="card_img">
                 <div class="card_details">
                     <h2>${lots.title}</h2>
-                    <p>$${lots.start_price}</p>
+                    <p class="price">$${lots.price === undefined ? lots.price = +lots.start_price : +lots.price}</p>
                     <div id="description-${lots.lot_id}" class="description">
                        ${lots.description}
                     </div>
@@ -47,13 +47,31 @@ export class UI {
                 </a>
                 <div class="card_btn">
                     <label for="bid"></label>
-                    <input id="bid" type="number" class="bid-input">
-                    <input type="button" id="addBid-${lots.lot_id}" value="Bid" class="bid-btn">
+                    <input id="bid" type="number" min="1" class="bid-input" data-id="${lots.lot_id}">
+                    <input type="button" id="addBid-${lots.lot_id}" data-id="${lots.lot_id}" value="Bid" class="bid-btn">
                     <label for="info" class="info-label"></label>
-                    <a href="/#info/${lots.lot_id}" id="info-${lots.lot_id}"  class="info-btn"> More details </a>
+                    <a href="/#info/${lots.lot_id}" id="info-${lots.lot_id}"  class="info-btn" data-id="${lots.lot_id}" > More details </a>
                 </div>
             </article>
  `
+    }
+    async checkForWinning (){
+        const disable = (arr, id) => arr.filter(el => el.dataset.id === id).map(el => el.disabled = true);
+        const query = (selector) => [...document.querySelectorAll(selector)];
+        const time = query(".card_time-left");
+        const bidBtn = query(".bid-btn");
+        const input = query(".bid-input");
+        time.forEach( el => {
+            if (el.textContent === 'Lot sold'){
+                let id = el.dataset.id;
+                disable(bidBtn, id);
+                disable(input, id);
+                // console.log(cardleft)
+            }
+
+        })
+        // console.log(card)
+
     }
     getBagButtons() {
 

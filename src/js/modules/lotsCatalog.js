@@ -21,9 +21,8 @@ export class Lots {
     async getLots() {
         try {
             //async always return a Promise, await => till Promise is settle ant then return the result //ajax request
-            let result = await fetch("app/js/json/lots.json"), //settle the request
-                data = await result.json();
-            console.log()
+            let result = await fetch("app/js/json/lots.json"); //settle the request
+            let data = await result.json();
             let lots = data.products;
             lots = lots.map( el => {
                 const lot_id = el.lot_id;
@@ -40,7 +39,37 @@ export class Lots {
             console.log(error);
         }
     }
+    async addBids(obj) {
+        const bidBtn = document.querySelectorAll(".bid-btn");
+        const bidInput = document.querySelectorAll(".bid-input");
+        const lots = obj;
 
+        let bid = 0;
+        if (bid !== 0) {
+            bid = 0;
+        }
+        bidInput.forEach( input => {
+            input.addEventListener('change', () => {
+                if (+input.value < 0) {
+                    bid = 0.01;
+                }
+                bid += +input.value;
+                console.log(input.value)
+            })
+        });
+
+        bidBtn.forEach( btn => {
+            btn.addEventListener('click', () => {
+                const id = btn.dataset.id;
+                const lot = lots.find(el => el.lot_id === +id);
+                    lot.price = +lot.price + bid;
+
+                localStorage.removeItem('lots');
+                localStorage.setItem('lots',  JSON.stringify(lots));
+                document.location.reload(true);
+            })
+        });
+    }
 
 }
 

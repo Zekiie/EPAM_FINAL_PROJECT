@@ -4,7 +4,8 @@ const slider = document.getElementById('slider');
 
 export class Slider {
     showSlider () {
-        slider.style.display = 'block';
+        // hideForSmallDev();
+        // slider.style.display = 'block';
         const showSlides = (node, n) => {
             const go = () => {
                 node.forEach((el) => el.style.display = 'none');
@@ -16,8 +17,10 @@ export class Slider {
                 setTimeout(go, 3000)
             };
 
-            go()
+            go();
+
         };
+
 
 
         function arrowChange(arr, n) {
@@ -40,7 +43,14 @@ export class Slider {
         showSlides(slides, slideIndex);
     }
     hideSlider() {
-        const slider = document.getElementById('slider');
         slider.style.display = 'none';
+    }
+    hideForSmallDev () {
+        if (window.innerWidth < 600) {
+            slider.style.display = 'none';
+            console.log(slider)
+        } else if (window.innerWidth > 600) {
+            slider.style.display = 'block';
+        }
     }
 }

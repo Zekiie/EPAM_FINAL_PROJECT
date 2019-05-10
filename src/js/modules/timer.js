@@ -11,9 +11,9 @@ function setTimer(endDate) {
     hoursLeft %= 24;
     daysLeft %= 7;
 
-    if (hoursLeft < 10) {
-        hoursLeft = "0" + hoursLeft;
-    }
+    // if (hoursLeft < 10) {
+    //     hoursLeft = "0" + hoursLeft;
+    // }
     if (minLeft < 10) {
         minLeft = "0" + minLeft;
     }
@@ -32,9 +32,6 @@ export class Timer {
             time = lotObj.end_time,
 
             endDate = new Date(date + " " + time);
-
-        console.log(new Date())
-
         // date.min = dateFormat(today);
 
         function dateFormat(date) {
@@ -51,19 +48,25 @@ export class Timer {
             return fullDate;
         }
 
-        // btn.addEventListener('click',  () => {
-        //     let a = new Date (endDate.date +","+ endDate.time);
-        //     console.log(a)
-        //     return a
-        // });
-
-        // date.addEventListener('change',  (event) => endDate.date = event.target.value)
-        // time.addEventListener('change',  (event) => endDate.time  = event.target.value)
-        console.log()
-
         function goTimer() {
 
             const timeLeft = setTimer(endDate);
+
+            if (timeLeft.weekLeft < 0 || isNaN(timeLeft.weekLeft)) {
+                timeLeft.weekLeft = 0;
+            }
+            if (timeLeft.daysLeft < 0 || isNaN(timeLeft.daysLeft)) {
+                timeLeft.daysLeft = 0;
+            }
+            if (timeLeft.hoursLeft < 0 || isNaN(timeLeft.hoursLeft)) {
+                timeLeft.hoursLeft = 0;
+            }
+            if (timeLeft.minLeft < 0 || isNaN(timeLeft.minLeft)) {
+                timeLeft.minLeft = 0;
+            }
+            if (timeLeft.secondLeft < 0 || isNaN(timeLeft.secondLeft)) {
+                timeLeft.secondLeft = 0;
+            }
 
             id('weeks').innerText = timeLeft.weekLeft;
             id('days').innerText = timeLeft.daysLeft;
@@ -72,6 +75,7 @@ export class Timer {
             id('seconds').innerText = timeLeft.secondLeft;
 
             setTimeout(goTimer, 1000);
+
         }
 
         goTimer()
@@ -97,18 +101,17 @@ export class Timer {
             time = lotObj.end_time,
             endDate = new Date(date + " " + time),
             timeLeft = setTimer(endDate);
-            console.log(timeLeft);
-            if (+timeLeft.weekLeft === 0 && +timeLeft.daysLeft === 0 && +timeLeft.hoursLeft === 0) {
-               return `${timeLeft.minLeft} minutes left`;
-            } else if (+timeLeft.weekLeft === 0 && +timeLeft.daysLeft === 0) {
-               return `${timeLeft.hoursLeft} hours left`;
-            } else if (+timeLeft.weekLeft === 0) {
-                return `${timeLeft.daysLeft} days left`;
-            } else if ( isNaN(timeLeft.weekLeft) || isNaN(timeLeft.daysLeft) || isNaN(timeLeft.hoursLeft) || isNaN(timeLeft.minLeft) || isNaN(timeLeft.secondLeft) ) {
-                return `Lot sold`;
-            } else {
-               return `${timeLeft.weekLeft} weeks left`;
-            }
+        if (+timeLeft.weekLeft === 0 && +timeLeft.daysLeft === 0 && +timeLeft.hoursLeft === 0) {
+            return `${timeLeft.minLeft} minutes left`;
+        } else if (+timeLeft.weekLeft === 0 && +timeLeft.daysLeft === 0) {
+            return `${timeLeft.hoursLeft} hours left`;
+        } else if (+timeLeft.weekLeft === 0) {
+            return `${timeLeft.daysLeft} days left`;
+        } else if (isNaN(timeLeft.weekLeft) || isNaN(timeLeft.daysLeft) || isNaN(timeLeft.hoursLeft) || isNaN(timeLeft.minLeft) || isNaN(timeLeft.secondLeft)) {
+            return `Lot sold`;
+        } else {
+            return `${timeLeft.weekLeft} weeks left`;
+        }
 
     };
 }

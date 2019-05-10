@@ -1,10 +1,14 @@
 export class Pagination {
 
     getPagination(obj, ui, lotsPerPage) {
+        let checkHash = (hash) => {
+            console.log(location.hash)
+        };
         const prevButton = document.getElementById('button_prev');
         const nextButton = document.getElementById('button_next');
         let current_page = 1;
         let records_per_page = lotsPerPage;
+
 
         let addEventListeners = () => {
             prevButton.addEventListener('click', prevPage);
@@ -31,8 +35,6 @@ export class Pagination {
 
         let changePage = (page, container) => {
             const cardContainer = document.getElementById('card-container');
-             let     lotsSave;
-            // const ui = new UI();
             if (page < 1) {
                 page = 1;
             }
@@ -42,7 +44,7 @@ export class Pagination {
 
             cardContainer.innerHTML = '';
             for (let i = (page - 1) * records_per_page; i < (page * records_per_page) && i < obj.length; i++) {
-                cardContainer.innerHTML += ui(obj[i]);
+               cardContainer.innerHTML += ui(obj[i]);
             }
             checkButtonOpacity();
             selectedPage();
@@ -53,7 +55,7 @@ export class Pagination {
                 current_page--;
                 changePage(current_page);
                 pageNumbers(pageMove(+current_page, numPages()));
-                // location.hash = `/${current_page}`;
+                location.hash = `/page=${current_page}`
             }
         };
 
@@ -62,16 +64,14 @@ export class Pagination {
                 current_page++;
                 changePage(current_page);
                 pageNumbers(pageMove(+current_page, numPages()));
-                console.log("works")
-                // location.hash = `/${current_page}`;
+                location.hash = `/page=${current_page}`
             }
         };
 
         let clickPage = () => {
             document.addEventListener('click', (e) => {
-                if (e.target.nodeName === "SPAN" && e.target.classList.contains("clickPageNumber")) {
+                if (e.target.nodeName === "A" && e.target.classList.contains("clickPageNumber")) {
                     current_page = e.target.textContent;
-                    console.log(typeof e.target.nodeName);
                     changePage(current_page);
                     pageMove(+current_page);
                     pageNumbers(pageMove(+current_page, numPages()));
@@ -87,7 +87,6 @@ export class Pagination {
                 left = start - delta,
                 right = start + delta + 1,
                 l;
-            console.log(start);
             for (let i = 1; i <= size; i++) {
                 if (i === 1 || i === size || i >= left && i < right) {
                     range.push(i);
@@ -110,9 +109,12 @@ export class Pagination {
         let pageNumbers = (arr) => {
             let pageNumber = document.getElementById('page_number');
             pageNumber.innerHTML = "";
-            arr.map((el) => pageNumber.innerHTML += `<span class='clickPageNumber'>${el} </span>`);
+            arr.map((el) => pageNumber.innerHTML += `<a href="#/page=${el}" class='clickPageNumber'>${el}</a>`);
             selectedPage()
         };
+
+
+
         changePage(1);
         pageNumbers(pageMove(+current_page, numPages()));
         selectedPage();

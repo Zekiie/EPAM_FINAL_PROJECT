@@ -88,6 +88,7 @@
   text-align: justify;
   font-size: 0.9em;
   word-break: break-word;
+  overflow: hidden;
 }
 .bid-input {
   @include size(25%, 30px);
