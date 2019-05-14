@@ -68,6 +68,7 @@ export class FullLotsInfo {
             btnInput.disabled = true;
             decr.addEventListener('click', () => btnInput.value = '');
             incr.addEventListener('click', () => btnInput.value = '');
+
             popup.style.visibility = "visible";
         }
     }

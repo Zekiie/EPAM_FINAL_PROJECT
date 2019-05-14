@@ -1,7 +1,6 @@
 .win-cart {
   // border: 1px solid black;
-  width: 35%;
-  position: absolute;
+  width: 100%;
   right: 0;
   top: 125%;
   padding: 10px;
@@ -21,7 +20,7 @@
     display:flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 1vw;
+    font-size: 1em;
     &-btn {
       width: 20%;
       height: 40px;
@@ -46,19 +45,21 @@
   &_item {
     display: flex;
     justify-content: space-between;
+    margin: 10px;
   }
   img {
-    width: 40%;
-    height: 50%;
+    width: 20%;
+    height: 225px;
   }
 }
 .lots-detail {
-  width: 50%;
+  width: 70%;
   h3 {
     font-size: 1.3em;
   }
   p {
     font-size: 1.2em;
+    margin: 10px 0;
   }
   a {
     text-transform: uppercase;
@@ -66,9 +67,12 @@
     font-weight: bold;
     background: none;
     font-size: 16px;
+    border-bottom: 1px solid #2d353d;
+    padding: 10px 0;
     text-transform: uppercase;
     &:hover {
-      color: red;
+      color: #ff0000;
+      border-bottom: 1px solid #ff0000;
     }
   }
 }
@@ -96,4 +100,12 @@
     border-color: #555;
     transition: all 0.4s ease 0s;
   }
+}
+.lnr-cart {
+  position: relative;
+div {
+  top: -40%;
+  left: 70%;
+  font-size: 0.5em;
+}
 }

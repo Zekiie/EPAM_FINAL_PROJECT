@@ -207,3 +207,44 @@ button:hover {
   transition: 0.2s;
   transform: scale(1.1);
 }
+
+.right-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 120%;
+  right: 5%;
+  a {
+    margin: 10px;
+    color: #565f66;
+  }
+}
+.empty {
+  @include size(40%, 200px);
+  border: 3px solid rgba(116, 132, 143, 0.78);
+  border-radius: 20px;
+  margin: 45px auto;
+  font-size: 2em;
+  text-align: center;
+  p{
+    background: #ff9999;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    color: $default-color;
+    padding: 40px 0;
+    margin-bottom: 4%;
+  }
+  a {
+    background: rgba(49,176,224,.98);
+    color: #fff;
+    border: none;
+    padding: 1% 3%;
+    border-radius: 15px;
+    &:hover {
+      box-shadow: 0 0 10px 3px #f2c621;
+      transition: 0.2s;
+      transform: scale(1.1);
+    }
+  }
+
+}

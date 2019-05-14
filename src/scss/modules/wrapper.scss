@@ -28,3 +28,11 @@ h3 {
   flex-direction: column;
   line-height: 2;
 }
+.map {
+  position: relative;
+   img{
+    position: absolute;
+    top: 0;
+  }
+
+}

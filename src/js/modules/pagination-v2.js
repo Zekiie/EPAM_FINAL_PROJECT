@@ -16,12 +16,18 @@ export class Pagination {
         };
 
         let selectedPage = () => {
-            let page_number = document.getElementById('page_number').getElementsByClassName('clickPageNumber');
-            for (let i = 0; i < page_number.length; i++) {
-                if (i === current_page - 1) {
-                    page_number[i].style.opacity = "1.0";
-                } else {
-                    page_number[i].style.opacity = "0.5";
+            let pages = document.getElementById('page_number');
+            if (pages === null) {
+                console.log("no items")
+            } else {
+                let page_number = pages.getElementsByClassName('clickPageNumber');
+
+                for (let i = 0; i < page_number.length; i++) {
+                    if (i === current_page - 1) {
+                        page_number[i].style.opacity = "1.0";
+                    } else {
+                        page_number[i].style.opacity = "0.5";
+                    }
                 }
             }
         };
@@ -44,7 +50,7 @@ export class Pagination {
 
             cardContainer.innerHTML = '';
             for (let i = (page - 1) * records_per_page; i < (page * records_per_page) && i < obj.length; i++) {
-               cardContainer.innerHTML += ui(obj[i]);
+                cardContainer.innerHTML += ui(obj[i], obj);
             }
             checkButtonOpacity();
             selectedPage();
@@ -108,11 +114,15 @@ export class Pagination {
 
         let pageNumbers = (arr) => {
             let pageNumber = document.getElementById('page_number');
-            pageNumber.innerHTML = "";
-            arr.map((el) => pageNumber.innerHTML += `<a href="#/page=${el}" class='clickPageNumber'>${el}</a>`);
-            selectedPage()
-        };
+            if (pageNumber === null) {
+                console.log("no items!")
+            } else {
+                pageNumber.innerHTML = "";
+                arr.map((el) => pageNumber.innerHTML += `<a href="#/page=${el}" class='clickPageNumber'>${el}</a>`);
+                selectedPage()
+            }
 
+        };
 
 
         changePage(1);

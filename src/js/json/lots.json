@@ -4,12 +4,11 @@
       "lot_id": 1,
       "email": "",
       "lot_info": {
-        "category": [
+        "category":
           {
             "main_ctg": "Home",
             "sub_ctg": "Baby"
-          }
-        ],
+          },
         "title": "Antiques Chinese Vase",
         "description": "Mid 19th Century Chinese Porcelain Vase and Lid",
         "condition": "old",
@@ -17,6 +16,7 @@
         "minimum_bid_amount": 1,
         "end_date": "2019-05-30",
         "end_time": "9:00",
+        "status": "auction",
         "images": {
           "primary_url": "app/img/goods/antiques.jpg",
           "extra_url": []
@@ -27,12 +27,11 @@
       "lot_id": 2,
       "email": "wemad.az19@vilnapresa.com",
       "lot_info": {
-        "category": [
+        "category":
           {
             "main_ctg": "Home & Garden",
             "sub_ctg": "Home Improvement"
-          }
-        ],
+          },
         "title": "Antiques Chinese Vase",
         "description": "Mid 19th Century Chinese Porcelain Vase and Lid",
         "condition": "old",
@@ -40,6 +39,7 @@
         "minimum_bid_amount": 1,
         "end_date": "2019-09-30",
         "end_time": "9:00",
+        "status": "auction",
         "images": {
           "primary_url": "app/img/goods/antiques.jpg",
           "extra_url": []
@@ -50,12 +50,11 @@
       "lot_id": 3,
       "email": "fyaz@zipo1.cf",
       "lot_info": {
-        "category": [
+        "category":
           {
             "main_ctg": "Electronics",
             "sub_ctg": "Cell Phones & Accessories"
-          }
-        ],
+          },
         "title": "Samsung Galaxy S10 Plus G9750 128gb/8gb Unlocked Prism White TT",
         "description": "A brand-new, unused, unopened, undamaged item in its original packaging (where packaging is applicable). Packaging should be the same as what is found in a retail store, unless the item is handmade or was packaged by the manufacturer in non-retail packaging, such as an unprinted box or plastic bag. See the seller's listing for full details.",
         "condition": "Used",
@@ -63,6 +62,7 @@
         "minimum_bid_amount": 1,
         "end_date": "2019-05-25",
         "end_time": "9:00",
+        "status": "auction",
         "images": {
           "primary_url": "app/img/goods/iphone.png",
           "extra_url": []
@@ -73,12 +73,11 @@
       "lot_id": 4,
       "email": "fyaz@zipo1.cf",
       "lot_info": {
-        "category": [
+        "category":
           {
             "main_ctg": "Home",
             "sub_ctg": "Cell Phones & Accessories"
-          }
-        ],
+          },
         "title": "DANFORTH - Forget Me Not Pewter Vase",
         "description": "One of our most popular vases, our Forget-Me-Not pewter vase is named after those delicate and welcome spring flowers that spread the palest blue carpet in our garden",
         "condition": "Used",
@@ -86,6 +85,7 @@
         "minimum_bid_amount": 1,
         "end_date": "2019-05-27",
         "end_time": "9:00",
+        "status": "auction",
         "images": {
           "primary_url": "https://images.pexels.com/photos/842950/pexels-photo-842950.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
           "extra_url": ["https://images.pexels.com/photos/545048/pexels-photo-545048.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"]
@@ -96,12 +96,11 @@
       "lot_id": 5,
       "email": "fyaz@zipo1.cf",
       "lot_info": {
-        "category": [
+        "category":
           {
             "main_ctg": "Electronics",
             "sub_ctg": "Cell Phones & Accessories"
-          }
-        ],
+          },
         "title": "Sothread Soft Creative Round Seat Cushion",
         "description": "Sothread Soft Creative Round Seat Cushion Garden Patio Home Kitchen Office Chair Pad (A).",
         "condition": "Used",
@@ -109,6 +108,7 @@
         "minimum_bid_amount": 1,
         "end_date": "2019-05-10",
         "end_time": "9:00",
+        "status": "auction",
         "images": {
           "primary_url": "https://images.pexels.com/photos/1279107/pexels-photo-1279107.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
           "extra_url": [
@@ -122,12 +122,11 @@
       "lot_id": 6,
       "email": "fyaz@zipo1.cf",
       "lot_info": {
-        "category": [
+        "category":
           {
             "main_ctg": "Electronics",
             "sub_ctg": "Digital Cameras & Photo"
-          }
-        ],
+          },
         "title": "Nikon G Af-s Nikkor 85mm f/1.8G Lens 2201",
         "description": "Easter Deal Sale Nikon G Af-s Nikkor 85mm f/1.8G Lens 2201 Hood & Pouch",
         "condition": "Used",
@@ -135,6 +134,7 @@
         "minimum_bid_amount": 1,
         "end_date": "01.05.2019",
         "end_time": "9:00",
+        "status": "auction",
         "images": {
           "primary_url": "https://images.pexels.com/photos/2179865/pexels-photo-2179865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
           "extra_url": [
@@ -149,12 +149,11 @@
       "lot_id": 7,
       "email": "fyaz@zipo1.cf",
       "lot_info": {
-        "category": [
+        "category":
           {
             "main_ctg": "Electronics",
             "sub_ctg": "Cell Phones & Accessories"
-          }
-        ],
+          },
         "title": "Men's Autumn Winter Sweater Pullover ",
         "description": "This slim hooded sweatshirt is like a longsleeve breathable t shirt with a hood and front pouch pockets, making it a versatile year-round clothing staple when it comes to light winter layering, staying warm on a cool spring jog, or a night time baseball game in the summer.",
         "condition": "New",
@@ -162,6 +161,7 @@
         "minimum_bid_amount": 1,
         "end_date": "01.05.2019",
         "end_time": "9:00",
+        "status": "auction",
         "images": {
           "primary_url": "https://images.pexels.com/photos/45982/pexels-photo-45982.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
           "extra_url": [
@@ -177,12 +177,11 @@
       "lot_id": 8,
       "email": "fyaz@zipo1.cf",
       "lot_info": {
-        "category": [
+        "category":
           {
             "main_ctg": "Health & Beauty",
             "sub_ctg": "Fragrances"
-          }
-        ],
+          },
         "title": "Samsung Galaxy S10 Plus G9750 128gb/8gb Unlocked Prism White TT",
         "description": "Mid 19th Century Chinese Porcelain Vase and Lid",
         "condition": "Used",
@@ -190,6 +189,7 @@
         "minimum_bid_amount": 1,
         "end_date": "01.05.2019",
         "end_time": "9:00",
+        "status": "auction",
         "images": {
           "primary_url": "https://images.pexels.com/photos/53006/perfume-scent-body-spray-cosmetics-53006.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
           "extra_url": []
@@ -200,12 +200,11 @@
       "lot_id": 9,
       "email": "fyaz@zipo1.cf",
       "lot_info": {
-        "category": [
+        "category":
           {
             "main_ctg": "Electronics",
             "sub_ctg": "Cell Phones & Accessories"
-          }
-        ],
+          },
         "title": "Samsung Galaxy S10 Plus G9750 128gb/8gb Unlocked Prism White TT",
         "description": "Mid 19th Century Chinese Porcelain Vase and Lid",
         "condition": "Used",
@@ -213,6 +212,7 @@
         "minimum_bid_amount": 1,
         "end_date": "01.05.2019",
         "end_time": "9:00",
+        "status": "auction",
         "images": {
           "primary_url": "app/img/goods/antiques.jpg",
           "extra_url": []
@@ -223,12 +223,11 @@
       "lot_id": 10,
       "email": "fyaz@zipo1.cf",
       "lot_info": {
-        "category": [
+        "category":
           {
             "main_ctg": "Electronics",
             "sub_ctg": "Cell Phones & Accessories"
-          }
-        ],
+          },
         "title": "Samsung Galaxy S10 Plus G9750 128gb/8gb Unlocked Prism White TT",
         "description": "Mid 19th Century Chinese Porcelain Vase and Lid",
         "condition": "Used",
@@ -236,6 +235,7 @@
         "minimum_bid_amount": 1,
         "end_date": "01.05.2019",
         "end_time": "9:00",
+        "status": "auction",
         "images": {
           "primary_url": "app/img/goods/antiques.jpg",
           "extra_url": []
@@ -246,12 +246,11 @@
       "lot_id": 11,
       "email": "fyaz@zipo1.cf",
       "lot_info": {
-        "category": [
+        "category":
           {
             "main_ctg": "Electronics",
             "sub_ctg": "Cell Phones & Accessories"
-          }
-        ],
+          },
         "title": "Samsung Galaxy S10 Plus G9750 128gb/8gb Unlocked Prism White TT",
         "description": "Mid 19th Century Chinese Porcelain Vase and Lid",
         "condition": "Used",
@@ -259,6 +258,7 @@
         "minimum_bid_amount": 1,
         "end_date": "01.05.2019",
         "end_time": "9:00",
+        "status": "auction",
         "images": {
           "primary_url": "app/img/goods/antiques.jpg",
           "extra_url": []
@@ -269,12 +269,11 @@
       "lot_id":12,
       "email": "fyaz@zipo1.cf",
       "lot_info": {
-        "category": [
+        "category":
           {
             "main_ctg": "Electronics",
             "sub_ctg": "Cell Phones & Accessories"
-          }
-        ],
+          },
         "title": "Samsung Galaxy S10 Plus G9750 128gb/8gb Unlocked Prism White TT",
         "description": "Mid 19th Century Chinese Porcelain Vase and Lid",
         "condition": "Used",
@@ -282,6 +281,7 @@
         "minimum_bid_amount": 1,
         "end_date": "01.05.2019",
         "end_time": "9:00",
+        "status": "auction",
         "images": {
           "primary_url": "app/img/goods/antiques.jpg",
           "extra_url": []
@@ -292,12 +292,11 @@
       "lot_id": 13,
       "email": "fyaz@zipo1.cf",
       "lot_info": {
-        "category": [
+        "category":
           {
             "main_ctg": "Electronics",
             "sub_ctg": "Cell Phones & Accessories"
-          }
-        ],
+          },
         "title": "Samsung Galaxy S10 Plus G9750 128gb/8gb Unlocked Prism White TT",
         "description": "Mid 19th Century Chinese Porcelain Vase and Lid",
         "condition": "Used",
@@ -305,6 +304,7 @@
         "minimum_bid_amount": 1,
         "end_date": "01.05.2019",
         "end_time": "9:00",
+        "status": "auction",
         "images": {
           "primary_url": "app/img/goods/antiques.jpg",
           "extra_url": []
@@ -315,12 +315,11 @@
       "lot_id": 14,
       "email": "fyaz@zipo1.cf",
       "lot_info": {
-        "category": [
+        "category":
           {
             "main_ctg": "Electronics",
             "sub_ctg": "Cell Phones & Accessories"
-          }
-        ],
+          },
         "title": "Samsung Galaxy S10 Plus G9750 128gb/8gb Unlocked Prism White TT",
         "description": "Mid 19th Century Chinese Porcelain Vase and Lid",
         "condition": "Used",
@@ -328,6 +327,7 @@
         "minimum_bid_amount": 1,
         "end_date": "01.05.2019",
         "end_time": "9:00",
+        "status": "auction",
         "images": {
           "primary_url": "app/img/goods/antiques.jpg",
           "extra_url": []

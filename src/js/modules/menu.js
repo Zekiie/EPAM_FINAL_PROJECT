@@ -5,9 +5,9 @@ export class MenuView {
                 return `
                
                 <li class="submenu_item">
-                        <a href="/#${item.main_ctg}" class="submenu_item-a">${item.main_ctg}</a>
+                        <a href="/#menu/${item.main_ctg}" class="submenu_item-a">${item.main_ctg}</a>
                         <ul class="sub-submenu">
-                        ${item.sub_ctg.map(el => `<li><a href="/#${item.main_ctg}/${el}">${el}</a></li>`).join('')}
+                        ${item.sub_ctg.map(el => `<li><a href="/#menu/${item.main_ctg}/${el}">${el}</a></li>`).join('')}
                         </ul>
                      </li>
                  
@@ -15,6 +15,15 @@ export class MenuView {
 
             });
         document.getElementById('submenu_categ').innerHTML = `${render.join('')}`
+    }
+    itemsByCategory (lots, menuCtg, subCtg) {
+        let fiterArr = [];
+        if (subCtg === undefined) {
+            fiterArr = [...lots.filter(el => el.main_ctg === menuCtg)]
+        } else {
+            fiterArr = [...lots.filter(el => el.sub_ctg === subCtg)];
+        }
+        return fiterArr;
     }
 }
 

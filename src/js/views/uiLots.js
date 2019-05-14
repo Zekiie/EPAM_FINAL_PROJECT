@@ -5,10 +5,19 @@ import {Timer} from "../modules/timer";
 
 let timer = new Timer();
 export class UI {
-    createLotsSection () {
-         document.getElementById('root').innerHTML = `
+    createLotsSection() {
+        document.getElementById('root').innerHTML = `
        <section id="lots" class="lots-section">
         <h2>AUCTION GALLERY</h2>
+        <aside class="right-menu">
+        <a href="#"><span class="lnr lnr-home"></span></a>
+         <a href="#sell"><span class="lnr lnr-store"></span></a>
+         <a href="#cart">
+          <span class="lnr lnr-cart">
+            <div class="cart-items">0</div>
+          </span>
+         </a>
+        </aside>
         <div class="container" id="card-container"></div>
         <div class="pagination">
             <div class="pagination_block">
@@ -31,8 +40,10 @@ export class UI {
     </section>
        `
     }
-    displayLots(lots, itemPerPage) {
-        return `
+
+    displayLots(lots) {
+        if (lots) {
+            return `
                 <article class="card" data-id="${lots.lot_id}">
                 <div class="card_time-left" data-id="${lots.lot_id}">${timer.shortVersion(lots)}</div>
                 <a href="/#info/${lots.lot_id}">
@@ -54,15 +65,25 @@ export class UI {
                 </div>
             </article>
  `
+        } else {
+            document.getElementById('root').innerHTML = `
+            <div class="empty">
+            <p>Sorry, still no lots for selling!</p>
+            <a href="#">Go to Bid!</a>
+            </div>
+            `
+        }
+
     }
-    async checkForWinning (){
+
+    async checkForWinning() {
         const disable = (arr, id) => arr.filter(el => el.dataset.id === id).map(el => el.disabled = true);
         const query = (selector) => [...document.querySelectorAll(selector)];
         const time = query(".card_time-left");
         const bidBtn = query(".bid-btn");
         const input = query(".bid-input");
-        time.forEach( el => {
-            if (el.textContent === 'Lot sold'){
+        time.forEach(el => {
+            if (el.textContent === 'Lot sold') {
                 let id = el.dataset.id;
                 disable(bidBtn, id);
                 disable(input, id);
@@ -71,24 +92,5 @@ export class UI {
 
         })
         // console.log(card)
-
-    }
-    getBagButtons() {
-
-        const card = [...document.querySelectorAll('.card')];
-        card.forEach( lot => {
-            let id = lot.dataset.id;
-            //check if products in bag cart
-            // let inCart = cart.find( item => item.id === id);
-
-        })
-    }
-    addLots () {
-        const add = [...document.querySelectorAll('.sell')];
-
     }
 }
-
-
-
-// pagination.getPagination(lots, ui.displayLots(lots));

@@ -1,3 +1,9 @@
+import {CartStorage} from "./lotsCatalog";
+
+let lotStorage = new CartStorage();
+
+
+
 function setTimer(endDate) {
     let today = new Date(),
         diverence = endDate.getTime() - today.getTime(),
@@ -101,6 +107,7 @@ export class Timer {
             time = lotObj.end_time,
             endDate = new Date(date + " " + time),
             timeLeft = setTimer(endDate);
+        const id = lotObj.lot_id;
         if (+timeLeft.weekLeft === 0 && +timeLeft.daysLeft === 0 && +timeLeft.hoursLeft === 0) {
             return `${timeLeft.minLeft} minutes left`;
         } else if (+timeLeft.weekLeft === 0 && +timeLeft.daysLeft === 0) {
@@ -112,6 +119,17 @@ export class Timer {
         } else {
             return `${timeLeft.weekLeft} weeks left`;
         }
-
     };
+    soldLots (lots) {
+        lots.forEach( el => {
+            const date = el.end_date,
+                time = el.end_time,
+                endDate = new Date(date + " " + time),
+                timeLeft = setTimer(endDate);
+            if (isNaN(timeLeft.weekLeft) || isNaN(timeLeft.daysLeft) || isNaN(timeLeft.hoursLeft) || isNaN(timeLeft.minLeft) || isNaN(timeLeft.secondLeft)) {
+                el.status = 'sold';
+            }
+        });
+        lotStorage.refreshLots(lots);
+    }
 }

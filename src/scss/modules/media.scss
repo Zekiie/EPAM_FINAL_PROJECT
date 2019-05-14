@@ -50,6 +50,13 @@
       top: -50%;
     }
   }
+  .win-cart_login {
+    font-size: 1em;
+
+      p {
+
+    }
+  }
 }
 
 
@@ -93,7 +100,10 @@
       max-width: 65%;
     }
   }
-
+  .empty {
+    font-size: 1.5em;
+    height: 175px;
+  }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
@@ -188,6 +198,25 @@
   iframe {
     margin-top: 10px;
   }
+  .lots-detail {
+
+    h3 {
+      font-size: 1em;
+    }
+    p {
+      font-size: 0.9em;
+    }
+  }
+  .win-lots_item {
+    img {
+      height: 200px;
+    }
+  }
+  .empty {
+    width: 85%;
+    font-size: 1.5em;
+  }
+
 }
 
 
@@ -239,10 +268,51 @@
   .slider {
     display: none;
   }
+  .win-lots_item {
+    flex-direction: column;
+    border-bottom: 2px solid #2d353d;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    img{
+      width: 60%;
+    }
+  }
+  .lots-detail {
+    a {
+      border: none;
+      &:hover {
+        border: none;
+      }
+    }
+  }
+  .empty {
+    font-size: 1.2em;
+    height:  150px;
+    p{
+      padding: 25px 0;
+    }
+  }
 
 }
 
 @media (max-width: 320px) {
+  .main-menu {
+    flex-wrap: wrap;
+
+    &_search {
+      width: 100%;
+      margin: 2% 4% 3%;
+    }
+
+    &_buy {
+      border: none;
+    }
+
+    &_logo {
+      width: 30%;
+    }
+  }
   .add-more-lots {
     width: 70%;
 
@@ -260,5 +330,29 @@
   .slider {
     display: none;
   }
-
+  .win-lots_item {
+    width: 100%;
+    flex-direction: column;
+    border-bottom: 2px solid #2d353d;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    img{
+      width: 60%;
+    }
+  }
+  .lots-detail {
+    a {
+      border: none;
+      &:hover {
+        border: none;
+      }
+    }
+  }
+  .empty {
+    font-size: 1.2em;
+    p{
+      padding: 25px 0;
+    }
+  }
 }

@@ -1,3 +1,5 @@
+import {CartStorage} from "./lotsCatalog";
+
 export class AddNewLots {
 
     addToCatalog(cat) {
@@ -15,6 +17,7 @@ export class AddNewLots {
         const arrImg = [];
         const catOption = document.getElementById('main_ctg');
         const subOption = document.getElementById('sub_ctg');
+        const storage = new CartStorage();
 
         // allInputs.forEach( input => input.addEventListener('keypress', () =>  submit.disabled = true));
 
@@ -68,6 +71,7 @@ export class AddNewLots {
                 allId = lotsArr.map(lot => lot.lot_id),
                 minBid = 1;
             obj.images = arrImg;
+            obj.status = "auction";
             obj.lot_id = Math.max(...allId) + 1;
             obj.minimum_bid_amount = minBid;
             formData.map(el => {

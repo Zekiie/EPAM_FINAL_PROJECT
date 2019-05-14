@@ -8,6 +8,7 @@ import {Search} from "./search";
 import {Pagination} from "./pagination-v2";
 import {AddNewLots} from "./addNewLotstoLS";
 import {AuctionCart} from "../views/auctionCart";
+import {AddToCart} from "../views/auctionCart";
 import {Timer} from "./timer";
 
 const ui = new UI();
@@ -16,14 +17,15 @@ const slider = new Slider();
 const search = new Search();
 const pagination = new Pagination();
 const auctionCart = new AuctionCart();
+const addToCart = new AddToCart();
 const timer = new Timer();
+const menu = new MenuView();
 
 
 let fullLots = JSON.parse(localStorage.getItem('lots'));
-// lotsCatolog.getLots();
+lotsCatolog.getLots();
 
 window.addEventListener('load', () => {
-    const menu = new MenuView();
     lotsCatolog.getMenu().then(cat => {
         menu.renderMenu(cat);
         search.goSearch(cat);
@@ -34,7 +36,7 @@ window.addEventListener('load', () => {
 export class Controller {
 
     async mainRoute(params) {
-
+        let fullLots = JSON.parse(localStorage.getItem('lots'));
         if(params.id === undefined || params.id === "page=1") {
             await ui.createLotsSection();
             slider.hideForSmallDev();
@@ -42,10 +44,14 @@ export class Controller {
             pagination.getPagination(fullLots, ui.displayLots, 6);
             lotsCatolog.addBids(fullLots);
             ui.checkForWinning();
+            timer.soldLots(fullLots)
+
         } else if (params.id) {
             lotsCatolog.addBids(fullLots);
             ui.checkForWinning();
+            timer.soldLots(fullLots)
         }
+        addToCart.inCart(fullLots);
 
     }
 
@@ -70,6 +76,28 @@ export class Controller {
         timer.imageGallery();
         fullLotsInfo.addBid(lot, fullLots);
         fullLotsInfo.checkTimer();
+    }
+    async cartRoute () {
+        let cart = JSON.parse(localStorage.getItem('cart'));
+        slider.hideSlider();
+        auctionCart.cartView();
+        addToCart.setCartValues(cart);
+        addToCart.addCartItem(cart)
+        auctionCart.displyCart();
+    }
+    async menuRoute (params) {
+        let menuCtg = params.id.replace(/%20/gi, ' ');
+        console.log(menuCtg)
+        let subCtg;
+        if (params.subId) {
+            subCtg = params.subId.replace(/%20/gi, ' ');
+            console.log(subCtg)
+        }
+
+        let obj = menu.itemsByCategory(fullLots, menuCtg, subCtg);
+        slider.hideSlider();
+        await ui.createLotsSection();
+        pagination.getPagination(obj, ui.displayLots, 6);
     }
 
 

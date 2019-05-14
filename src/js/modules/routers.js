@@ -2,9 +2,9 @@ import {Controller} from './controller';
 
 function getRouterInfo() {
     const hash = location.hash ? location.hash.slice(1) : '';
-    const [name, id] = hash.split('/');
-
-    return { name, params: {id}}
+    const [name, id, subId] = hash.split('/');
+    console.log(subId)
+    return { name, params: {id, subId}}
 }
 
 function handleHash() {

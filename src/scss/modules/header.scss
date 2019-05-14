@@ -41,6 +41,23 @@ nav{
       display: flex;
     }
   }
+  &_login {
+    position: relative;
+  }
+}
+.cart-items {
+  visibility: hidden;
+  position: absolute;
+  @include size(25px);
+  background: rgba(255,125,89,0.9);
+  border-radius: 50%;
+  top: -70%;
+  right: -20%;
+  font-size: 0.7em;
+  color: #fff;
+  text-align: center;
+  line-height: 25px;
+  font-weight: bold;
 }
 
 .search {
