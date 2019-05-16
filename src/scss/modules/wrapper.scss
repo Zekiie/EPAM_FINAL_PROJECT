@@ -36,3 +36,139 @@ h3 {
   }
 
 }
+
+.btn {
+  display: block;
+  background-color: #eddf42;
+  color: $default-color;
+  text-decoration: none;
+  margin: 20px 0;
+  padding: 15px 15px;
+  border-radius: 5px;
+  position: relative;
+  cursor:pointer;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s ease-in-out;
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0), 0 3px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.btn:hover::after {
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.signup-form fieldset {
+  border: none;
+  padding: 0;
+  margin: 20px 0;
+  position: relative;
+}
+
+.signup-form fieldset input {
+  width: 100%;
+  height: 48px;
+  color: #333;
+  padding: 15px 40px 15px 15px;
+  font-size: 14px;
+  outline: none;
+  border: 1px solid #ff801d;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+  vertical-align: top;
+}
+
+.signup-form button {
+
+  width: 100%;
+  outline: none;
+  background: linear-gradient(-5deg, #ef6c4f, #ffc775);
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  box-shadow: 0 3px 0 rgba(115, 136, 89, 0.2);
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.signup {
+  //visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 400px;
+  background-color: $default-color;
+  border-radius: 10px;
+  box-shadow: 0 3px 25px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  &-classic {
+    display: none;
+    width: 100%;
+    padding: 30px 50px;
+    position: relative;
+    h2 {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 35px;
+    }
+    .fa-times {
+      position: absolute;
+      font-size: 30px;
+      color: rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 2;
+      font-family: FontAwesome;
+      font-style: normal;
+      top: 5%;
+      right: 5%;
+      &:hover,
+      &:active,
+      &:focus {
+        color: $primary-color;
+      }
+    }
+    fieldset::after {
+      content: "\f007";
+      font-family: FontAwesome;
+      position: absolute;
+      right: 15px;
+      top: 17px;
+      z-index: 2;
+      width: 20px;
+      color: rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+  }
+  .popuptext {
+    //visibility: hidden;
+    width: 75%;
+    bottom: -50%;
+    left: 10%;
+  }
+  .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+}
+
+
+
+.signup-classic fieldset.email::after {
+  content: "\f0e0";
+}
+
+.signup-classic fieldset.password::after {
+  content: "\f023";
+}

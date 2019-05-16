@@ -1,6 +1,8 @@
 import {CartStorage} from "../modules/lotsCatalog";
+import {RegisterForm} from "../modules/registration";
 
 const storage = new CartStorage();
+const register = new RegisterForm();
 const query = (selector) => [...document.querySelectorAll(selector)];
 let cart = [];
 let idLots = [];
@@ -10,10 +12,10 @@ export class AuctionCart {
         document.getElementById('root').innerHTML = `
         <section class="win-cart">
   <div class="win-cart_left">
-    <h2>Your win</h2>
+    <h2>Lots sold</h2>
   <div class='win-cart_login'>
     <p>Have an account? Sign in and proceed to payment</p>
-    <button class="win-cart_login-btn">
+    <button class="win-cart_login-btn" id="sign-in">
       Sign in
     </button>
   </div>
@@ -35,6 +37,14 @@ export class AuctionCart {
     <input type="button" class="proceed-btn" id="summary-proceed" value="Proceed to payment">
   </div>
 </section>`
+
+
+    }
+    async signIn () {
+        const signup = document.querySelector(".signup-classic");
+        document.getElementById("close-signup").addEventListener('click', () => signup.style.display = 'none');
+        document.getElementById("sign-in").addEventListener("click", () => signup.style.display = 'block');
+
     }
 
     async lotinCart(lot) {
@@ -51,18 +61,22 @@ export class AuctionCart {
       </article>`
     }
 
-    async displyCart() {
+    async displyItemsInCart() {
         const menuBtn = document.querySelector(".main-menu_login");
         const cart = document.querySelector(".win-cart");
 
         menuBtn.addEventListener('focus', () => cart.style.display = "block");
     }
 }
-
 export class AddToCart {
     async inCart(obj) {
         const quant = query(".cart-items");
-        cart = [...obj.filter(item => item.status === "sold")];
+        cart = [...obj.filter(item => {
+            if (item.status === "sold" && item.price !== undefined && +item.price !== +item.start_price) {
+                return item;
+            }
+                })];
+        console.log(cart)
         storage.saveCart(cart);
         if (cart.length !== 0) {
             quant.map(el => {
@@ -82,7 +96,7 @@ export class AddToCart {
         cart.map((item, i) => {
             tempTotal += +item.price;
         });
-        totalSum.innerText = parseFloat(tempTotal.toFixed(2));
+        totalSum.innerText = parseFloat(tempTotal.toFixed(2)) + " USD";
         cartItems.innerText = amount;
         cartQuant.forEach(el => el.innerText = amount + ' items');
     }
@@ -103,7 +117,18 @@ export class AddToCart {
       </article>`
         }).join('')
     }
-
-//static method could be without extantion the class
+    checkSignin (obj) {
+        let user = JSON.parse(localStorage.getItem('user'));
+        const signin = document.querySelector(".win-cart_login");
+        const menuLogIn = document.querySelector(".login");
+        const cartLogIn = document.querySelector(".win-cart_left h2");
+        if(user) {
+            signin.style.display = 'none';
+            menuLogIn.innerText = 'Your Win';
+            cartLogIn.innerText = 'Your Win';
+            let userCart = obj.filter( el => el.email_bid === user.email);
+                this.inCart(userCart);
+        }
+    }
 }
 

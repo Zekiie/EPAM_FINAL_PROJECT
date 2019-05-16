@@ -10,6 +10,7 @@ import {AddNewLots} from "./addNewLotstoLS";
 import {AuctionCart} from "../views/auctionCart";
 import {AddToCart} from "../views/auctionCart";
 import {Timer} from "./timer";
+import {RegisterForm} from "./registration";
 
 const ui = new UI();
 const lotsCatolog = new Lots();
@@ -20,10 +21,11 @@ const auctionCart = new AuctionCart();
 const addToCart = new AddToCart();
 const timer = new Timer();
 const menu = new MenuView();
+const register = new RegisterForm();
 
 
 let fullLots = JSON.parse(localStorage.getItem('lots'));
-lotsCatolog.getLots();
+// lotsCatolog.getLots();
 
 window.addEventListener('load', () => {
     lotsCatolog.getMenu().then(cat => {
@@ -37,20 +39,26 @@ export class Controller {
 
     async mainRoute(params) {
         let fullLots = JSON.parse(localStorage.getItem('lots'));
+        await ui.createLotsSection();
+        slider.hideForSmallDev();
+        await slider.showSlider();
+        await register.regForm();
+        await register.saveUser();
         if(params.id === undefined || params.id === "page=1") {
-            await ui.createLotsSection();
-            slider.hideForSmallDev();
-            await slider.showSlider();
-            pagination.getPagination(fullLots, ui.displayLots, 6);
+            let id = 1;
+            pagination.getPagination(fullLots, ui.displayLots, 6, id);
             lotsCatolog.addBids(fullLots);
             ui.checkForWinning();
             timer.soldLots(fullLots)
 
         } else if (params.id) {
+            let id = +params.id.match(/[0-9]+/);
+            pagination.getPagination(fullLots, ui.displayLots, 6, id);
             lotsCatolog.addBids(fullLots);
             ui.checkForWinning();
             timer.soldLots(fullLots)
         }
+
         addToCart.inCart(fullLots);
 
     }
@@ -63,6 +71,8 @@ export class Controller {
             sellPage.displaySellForm(cat);
             addNewLots.addToCatalog(cat);
         });
+        addToCart.inCart(fullLots);
+
     }
 
     async infoRoute(params) {
@@ -76,28 +86,40 @@ export class Controller {
         timer.imageGallery();
         fullLotsInfo.addBid(lot, fullLots);
         fullLotsInfo.checkTimer();
+        addToCart.inCart(fullLots);
+
     }
     async cartRoute () {
         let cart = JSON.parse(localStorage.getItem('cart'));
         slider.hideSlider();
         auctionCart.cartView();
         addToCart.setCartValues(cart);
-        addToCart.addCartItem(cart)
-        auctionCart.displyCart();
+        addToCart.addCartItem(cart);
+        auctionCart.displyItemsInCart();
+        register.regForm();
+        auctionCart.signIn();
+        addToCart.inCart(fullLots);
+        register.saveUser();
+        addToCart.checkSignin(fullLots);
+
     }
     async menuRoute (params) {
+        slider.hideSlider();
+        await ui.createLotsSection();
+        let id = +params.id.match(/[0-9]+/);
         let menuCtg = params.id.replace(/%20/gi, ' ');
-        console.log(menuCtg)
         let subCtg;
         if (params.subId) {
             subCtg = params.subId.replace(/%20/gi, ' ');
-            console.log(subCtg)
         }
-
         let obj = menu.itemsByCategory(fullLots, menuCtg, subCtg);
-        slider.hideSlider();
-        await ui.createLotsSection();
-        pagination.getPagination(obj, ui.displayLots, 6);
+        if (obj.length <= 0) {
+         ui.noLots();
+        } else {
+            pagination.getPagination(obj, ui.displayLots, 6, id);
+        }
+        addToCart.inCart(fullLots);
+
     }
 
 

@@ -27,11 +27,11 @@ export class Lots {
             lots = lots.map( el => {
                 const lot_id = el.lot_id;
                 const email = el.email;
-                const {title,description,start_price,end_date,end_time, status, minimum_bid_amount, condition} = el.lot_info;
+                const {title,description,start_price,end_date,end_time, status, minimum_bid_amount, condition, price} = el.lot_info;
                 const {main_ctg, sub_ctg} = el.lot_info.category;
                 const image = el.lot_info.images.primary_url;
                 const images = el.lot_info.images.extra_url;
-                return {lot_id,email,title,description,start_price,end_date,end_time,status, minimum_bid_amount, condition, main_ctg, sub_ctg, image, images}
+                return {lot_id,email,title,description,start_price, price, end_date,end_time,status, minimum_bid_amount, condition, main_ctg, sub_ctg, image, images}
             });
             localStorage.setItem("lots", JSON.stringify(lots));
             return lots;
@@ -55,19 +55,26 @@ export class Lots {
                     bid = 0.01;
                 }
                 bid += +input.value;
-                console.log(input.value)
             })
         });
 
         bidBtn.forEach( btn => {
             btn.addEventListener('click', () => {
                 const id = btn.dataset.id;
-                const lot = lots.find(el => el.lot_id === +id);
+                const user = JSON.parse(localStorage.getItem('user'));
+                if (user) {
+                    const lot = lots.find(el => el.lot_id === +id);
                     lot.price = +lot.price + bid;
+                    lot.email_bid = user.email;
+                    localStorage.setItem('lots',  JSON.stringify(lots));
+                    document.location.reload(true);
+                } else {
+                    const signup = document.querySelector(".signup-classic");
+                    document.getElementById("close-signup").addEventListener('click', () => signup.style.display = 'none');
+                  signup.style.display = 'block';
 
-                // localStorage.removeItem('lots');
-                // localStorage.setItem('lots',  JSON.stringify(lots));
-                document.location.reload(true);
+                }
+
             })
         });
     }

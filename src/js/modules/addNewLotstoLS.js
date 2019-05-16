@@ -83,9 +83,7 @@ export class AddNewLots {
             let fullCatalog = JSON.parse(localStorage.getItem("lots"));
             fullCatalog.push(lot);
             localStorage.setItem("lots", JSON.stringify(fullCatalog));
-            console.log(fullCatalog)
         }
-
 
         email.addEventListener('change', () => validateEmail(email.value, id("myPopup-email")));
         // title.addEventListener('change', (e) => validateTitle(e.target.value, id("myPopup-title")));
@@ -98,9 +96,7 @@ export class AddNewLots {
                 createObj();
                 addMorePopup();
                 addLot(obj);
-                console.log(obj)
             }
-            console.log(obj)
         });
 
 
@@ -116,13 +112,10 @@ export class AddNewLots {
                     path = `app/img/goods/${e.target.value.match(/[^\\]*\.(\w+)/gm).join('')}`;
                     obj.image = `app/img/goods/${e.target.value.match(/[^\\]*\.(\w+)/gm).join('')}`;
                     arrImg.push(path);
-                    console.log(arrImg)
                     reader.readAsDataURL(e.target.files[0]);
                 }
             })
         });
-
-        console.log(obj)
     }
 
 }

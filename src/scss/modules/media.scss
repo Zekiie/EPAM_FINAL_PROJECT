@@ -293,6 +293,12 @@
       padding: 25px 0;
     }
   }
+  .signup {
+    width: 300px;
+    &-classic {
+      padding: 20px 30px;
+    }
+  }
 
 }
 
@@ -353,6 +359,12 @@
     font-size: 1.2em;
     p{
       padding: 25px 0;
+    }
+  }
+  .signup {
+    width: 250px;
+    &-classic {
+      padding: 10px;
     }
   }
 }

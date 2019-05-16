@@ -1,12 +1,9 @@
 export class Pagination {
 
-    getPagination(obj, ui, lotsPerPage) {
-        let checkHash = (hash) => {
-            console.log(location.hash)
-        };
+    getPagination(obj, ui, lotsPerPage, id) {
         const prevButton = document.getElementById('button_prev');
         const nextButton = document.getElementById('button_next');
-        let current_page = 1;
+        let current_page = id;
         let records_per_page = lotsPerPage;
 
 
@@ -38,19 +35,40 @@ export class Pagination {
         };
 
         let numPages = () => Math.ceil(obj.length / records_per_page);
+        function objDived(lotsArr, num){
+            if (lotsArr.length <= num) {
+                return [...lotsArr]
+            } else {
+                let arr = [...lotsArr.map(el => el)];
+                const newArr = [];
+                let n = 0;
+                for (let i = 0; i < numPages(); i ++) {
+                    newArr.push(arr.splice(0, num));
+                }
+                return newArr;
+            }
 
-        let changePage = (page, container) => {
+        }
+
+        const arrDispl = objDived(obj, lotsPerPage, id);
+        let changePage = (page) => {
             const cardContainer = document.getElementById('card-container');
-            if (page < 1) {
+
+            if (page < 1 || id === 0 || page === 0) {
                 page = 1;
+                console.log(page)
             }
             if (page > (numPages() - 1)) {
                 page = numPages();
             }
 
             cardContainer.innerHTML = '';
-            for (let i = (page - 1) * records_per_page; i < (page * records_per_page) && i < obj.length; i++) {
-                cardContainer.innerHTML += ui(obj[i], obj);
+            for (let i = (page - 1); i < page; i++) {
+                ui(arrDispl[i]);
+            }
+            if (id) {
+                cardContainer.innerHTML = '';
+                ui(arrDispl[id-1]);
             }
             checkButtonOpacity();
             selectedPage();
@@ -125,7 +143,7 @@ export class Pagination {
         };
 
 
-        changePage(1);
+        changePage(id);
         pageNumbers(pageMove(+current_page, numPages()));
         selectedPage();
         clickPage();

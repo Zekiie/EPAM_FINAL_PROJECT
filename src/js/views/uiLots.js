@@ -4,6 +4,7 @@ import {SellPage} from "./sellview";
 import {Timer} from "../modules/timer";
 
 let timer = new Timer();
+
 export class UI {
     createLotsSection() {
         document.getElementById('root').innerHTML = `
@@ -42,8 +43,8 @@ export class UI {
     }
 
     displayLots(lots) {
-        if (lots) {
-            return `
+        function renderItems(lots) {
+            cardContainer.innerHTML += `
                 <article class="card" data-id="${lots.lot_id}">
                 <div class="card_time-left" data-id="${lots.lot_id}">${timer.shortVersion(lots)}</div>
                 <a href="/#info/${lots.lot_id}">
@@ -65,15 +66,34 @@ export class UI {
                 </div>
             </article>
  `
+        }
+
+        const cardContainer = document.getElementById('card-container');
+        if (lots instanceof Array) {
+            lots.forEach(el => {
+                renderItems(el);
+            });
         } else {
-            document.getElementById('root').innerHTML = `
+            if (lots === undefined) {
+                document.getElementById('root').innerHTML = `
             <div class="empty">
             <p>Sorry, still no lots for selling!</p>
             <a href="#">Go to Bid!</a>
             </div>
             `
+            } else {
+                renderItems(lots);
+            }
         }
+    }
 
+    async noLots() {
+        document.getElementById('root').innerHTML = `
+            <div class="empty">
+            <p>Sorry, still no lots for selling!</p>
+            <a href="#">Go to Bid!</a>
+            </div>
+            `
     }
 
     async checkForWinning() {
