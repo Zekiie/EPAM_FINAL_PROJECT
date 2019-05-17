@@ -12,9 +12,9 @@ export class FullLotsInfo {
                 </div>
                 <div class="image_list">
                     <div class="image_list-item">
-                    <img src="${lot.image}" alt="${lot.title}" class="image_list active" id='main' >                    </div>
+                    <img src="${lot.image}" alt="${lot.title}" class="image_list active" id='main' >                    
+                    </div>
                     ${images(lot).join('')}
-                    
                 </div>
             </div>
             <div class="full-card_info">
@@ -40,8 +40,6 @@ export class FullLotsInfo {
                 </div>
                 <p>Auction ends: ${lot.end_date}</p>
                 <p>Current bid: </p>
-<!--                <p>Max bid:</p>-->
-
                 <div class="full-card_bid">
                     <div class="full-card_bid-decr"></div>
                     <label for="bid-sum" class="full-card_bid-sum"></label>
@@ -99,6 +97,7 @@ export class FullLotsInfo {
                 bid = bidInput.value;
             }
         });
+        //bid for single button
         bidInput.addEventListener('change', () => {
             if (+bidInput.value < 0) {
                 bid = 0.01;
@@ -108,11 +107,19 @@ export class FullLotsInfo {
 
         bidbtn.addEventListener('click', () => {
             const id = bidbtn.dataset.id;
-            lot.price = +lot.price + +bid;
-            console.log(lot.price);
-            localStorage.removeItem('lots');
-            localStorage.setItem('lots',  JSON.stringify(fullLots));
-            document.location.reload(true);
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                const lot = lots.find(el => el.lot_id === +id);
+                lot.price = +lot.price + bid;
+                lot.email_bid = user.email;
+                localStorage.setItem('lots',  JSON.stringify(lots));
+                document.location.reload(true);
+            } else {
+                const signup = document.querySelector(".signup-classic");
+                document.getElementById("close-signup").addEventListener('click', () => signup.style.display = 'none');
+                signup.style.display = 'block';
+
+            }
         })
     }
 }

@@ -18,7 +18,7 @@ export class RegisterForm {
                     minlength="4" maxlength="8" size="8" id="password" pattern="^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$" required>
                     <span class="popuptext" id="myPopup-psw">Your passwort isn't strong enough!</span>
                 </fieldset>
-                <button type="submit" class="btn" id="signIn-submit">Sign up</button>
+                <button type="submit" class="btn" id="signIn-submit" value="btn">Sign up</button>
             </form>
         </div>
     </div>
@@ -32,7 +32,6 @@ export class RegisterForm {
         const email = id('email');
         const password = id('password');
         let objUser = {};
-    console.log(formSignup );
         function refreshUsers (key, objUsers) {
             localStorage.setItem(key, JSON.stringify(objUsers))
         }
@@ -61,10 +60,12 @@ export class RegisterForm {
             formSignup.map(el => {
                 if (el.id && el.value !== "") {
                     objUser[[el.id]] = el.value;
+                } else if (el.value === "") {
+                    el.innerText = 'fill this field!';
                 }
             });
 
-            if (Object.keys(objUser).length > 0 &&   validateEmail(objUser.email, id("myPopup-email")) && validatePassword(password.value, id("myPopup-psw"))) {
+            if (Object.keys(objUser).length > 0 && validateEmail(objUser.email, id("myPopup-email")) && validatePassword(password.value, id("myPopup-psw"))) {
                 refreshUsers ("user", objUser);
                 signup.style.display = 'none';
             }

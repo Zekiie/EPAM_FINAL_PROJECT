@@ -4,8 +4,6 @@ const slider = document.getElementById('slider');
 
 export class Slider {
     showSlider () {
-        // hideForSmallDev();
-        // slider.style.display = 'block';
         const showSlides = (node, n) => {
             const go = () => {
                 node.forEach((el) => el.style.display = 'none');
@@ -21,8 +19,6 @@ export class Slider {
 
         };
 
-
-
         function arrowChange(arr, n) {
             arr = slides;
             n = slideIndex;
@@ -36,7 +32,6 @@ export class Slider {
             arr[slideIndex - 1].style.display = "flex";
         }
 
-
         document.getElementById("left-sl").addEventListener("click", () => arrowChange(slideIndex += 1));
         document.getElementById("right-sl").addEventListener("click", () => arrowChange(slideIndex -= 1));
 
@@ -48,7 +43,6 @@ export class Slider {
     hideForSmallDev () {
         if (window.innerWidth < 600) {
             slider.style.display = 'none';
-            console.log(slider)
         } else if (window.innerWidth > 600) {
             slider.style.display = 'block';
         }

@@ -72,6 +72,7 @@ export class AddNewLots {
                 minBid = 1;
             obj.images = arrImg;
             obj.status = "auction";
+            obj.newLots = "new lots";
             obj.lot_id = Math.max(...allId) + 1;
             obj.minimum_bid_amount = minBid;
             formData.map(el => {

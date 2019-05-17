@@ -6,6 +6,16 @@
     margin: auto;
     text-align: center  ;
   }
+  &_sort {
+    display: none;
+    @include size(75%);
+    margin: 10px auto;
+    justify-content: space-between;
+    select {
+      //display: none;
+    }
+  }
+
 }
 
 .container {
@@ -246,5 +256,4 @@ button:hover {
       transform: scale(1.1);
     }
   }
-
 }

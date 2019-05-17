@@ -17,9 +17,6 @@ function setTimer(endDate) {
     hoursLeft %= 24;
     daysLeft %= 7;
 
-    // if (hoursLeft < 10) {
-    //     hoursLeft = "0" + hoursLeft;
-    // }
     if (minLeft < 10) {
         minLeft = "0" + minLeft;
     }
@@ -38,7 +35,6 @@ export class Timer {
             time = lotObj.end_time,
 
             endDate = new Date(date + " " + time);
-        // date.min = dateFormat(today);
 
         function dateFormat(date) {
             let year = date.getFullYear();

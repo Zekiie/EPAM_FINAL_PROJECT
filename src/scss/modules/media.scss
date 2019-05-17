@@ -189,12 +189,30 @@
       }
     }
   }
+  .full-card{
+    &_info-time {
+      font-size: 1em;
+    }
+
+    &_sum-input {
+      margin-bottom: 20px;
+    }
+    &_bid {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 5%;
+      &-submit {
+        margin: 0 35px;
+      }
+    }
+  }
+
   .contacts {
     &_container {
       flex-direction: column;
       align-items: center;
     }
-  }
+}
   iframe {
     margin-top: 10px;
   }
@@ -299,7 +317,21 @@
       padding: 20px 30px;
     }
   }
+  .full-card{
+    flex-direction: column;
+    &_image {
+      @include size(100%);
+    }
+    &_info{
+      @include size(100%);
+      &-time {
+        font-size: 1em;
+      }
+    }
 
+
+
+  }
 }
 
 @media (max-width: 320px) {
@@ -365,6 +397,18 @@
     width: 250px;
     &-classic {
       padding: 10px;
+    }
+  }
+  .full-card{
+    flex-direction: column;
+    &_image {
+      @include size(100%);
+    }
+    &_info{
+      @include size(100%);
+      &-time {
+        font-size: 1em;
+      }
     }
   }
 }

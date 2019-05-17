@@ -15,7 +15,7 @@ export class Pagination {
         let selectedPage = () => {
             let pages = document.getElementById('page_number');
             if (pages === null) {
-                console.log("no items")
+                console.log('no items!')
             } else {
                 let page_number = pages.getElementsByClassName('clickPageNumber');
 
@@ -53,7 +53,6 @@ export class Pagination {
         const arrDispl = objDived(obj, lotsPerPage, id);
         let changePage = (page) => {
             const cardContainer = document.getElementById('card-container');
-
             if (page < 1 || id === 0 || page === 0) {
                 page = 1;
                 console.log(page)
@@ -63,13 +62,18 @@ export class Pagination {
             }
 
             cardContainer.innerHTML = '';
-            for (let i = (page - 1); i < page; i++) {
-                ui(arrDispl[i]);
+            if (obj.length < lotsPerPage) {
+                ui(arrDispl);
+            } else {
+                for (let i = (page - 1); i < page; i++) {
+                    ui(arrDispl[i]);
+                }
+                if (id) {
+                    cardContainer.innerHTML = '';
+                    ui(arrDispl[id-1]);
+                }
             }
-            if (id) {
-                cardContainer.innerHTML = '';
-                ui(arrDispl[id-1]);
-            }
+
             checkButtonOpacity();
             selectedPage();
         };

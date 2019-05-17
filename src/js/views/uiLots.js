@@ -1,15 +1,24 @@
-import {LocalStorage, Lots} from "../modules/lotsCatalog";
-import {Pagination} from "../modules/pagination-v2";
-import {SellPage} from "./sellview";
 import {Timer} from "../modules/timer";
 
 let timer = new Timer();
 
 export class UI {
-    createLotsSection() {
+    createLotsSection(obj, items) {
         document.getElementById('root').innerHTML = `
        <section id="lots" class="lots-section">
         <h2>AUCTION GALLERY</h2>
+        <div class="lots-section_sort">
+            <p>Total: ${obj.length} lots</p>
+            <div>
+                <label for="sorting">Sort by</label>
+                <select name="sort" id="sorting">
+                    <option value="Price: high-low">Price: high-low</option>
+                    <option value="Price: low-high">Price: low-high</option>
+                    <option value="Time: ending soonest">Time: ending soonest</option>
+                    <option value="Time: new listed">Time: new listed</option>
+                </select>
+            </div>
+        </div>
         <aside class="right-menu">
         <a href="#"><span class="lnr lnr-home"></span></a>
          <a href="#sell"><span class="lnr lnr-store"></span></a>
@@ -107,10 +116,7 @@ export class UI {
                 let id = el.dataset.id;
                 disable(bidBtn, id);
                 disable(input, id);
-                // console.log(cardleft)
             }
-
         })
-        // console.log(card)
     }
 }

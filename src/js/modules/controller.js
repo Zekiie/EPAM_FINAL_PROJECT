@@ -11,6 +11,7 @@ import {AuctionCart} from "../views/auctionCart";
 import {AddToCart} from "../views/auctionCart";
 import {Timer} from "./timer";
 import {RegisterForm} from "./registration";
+import {Sort} from "./sorting";
 
 const ui = new UI();
 const lotsCatolog = new Lots();
@@ -22,7 +23,7 @@ const addToCart = new AddToCart();
 const timer = new Timer();
 const menu = new MenuView();
 const register = new RegisterForm();
-
+const sort = new Sort();
 
 let fullLots = JSON.parse(localStorage.getItem('lots'));
 // lotsCatolog.getLots();
@@ -39,7 +40,7 @@ export class Controller {
 
     async mainRoute(params) {
         let fullLots = JSON.parse(localStorage.getItem('lots'));
-        await ui.createLotsSection();
+        await ui.createLotsSection(fullLots);
         slider.hideForSmallDev();
         await slider.showSlider();
         await register.regForm();
@@ -60,7 +61,7 @@ export class Controller {
         }
 
         addToCart.inCart(fullLots);
-
+        // sort.sortLots(fullLots);
     }
 
     async sellRoute() {
@@ -77,16 +78,19 @@ export class Controller {
 
     async infoRoute(params) {
         let id = +params.id;
+
         slider.hideSlider();
         const fullLotsInfo = new FullLotsInfo();
-
         let lot = fullLots.find(lot => lot.lot_id === id);
         fullLotsInfo.fullCardTemplate(lot);
+        register.regForm();
+        register.saveUser();
         timer.timer(lot);
         timer.imageGallery();
         fullLotsInfo.addBid(lot, fullLots);
         fullLotsInfo.checkTimer();
         addToCart.inCart(fullLots);
+
 
     }
     async cartRoute () {
@@ -105,14 +109,14 @@ export class Controller {
     }
     async menuRoute (params) {
         slider.hideSlider();
-        await ui.createLotsSection();
+
         let id = +params.id.match(/[0-9]+/);
         let menuCtg = params.id.replace(/%20/gi, ' ');
-        let subCtg;
-        if (params.subId) {
-            subCtg = params.subId.replace(/%20/gi, ' ');
-        }
-        let obj = menu.itemsByCategory(fullLots, menuCtg, subCtg);
+        let subCtg = params.subId ? params.subId.replace(/%20/gi, ' ') : undefined;
+        let obj = [];
+        obj = menu.itemsByCategory(fullLots, menuCtg, subCtg);
+        await ui.createLotsSection(obj);
+        // pagination.getPagination(obj, ui.displayLots, 6, id);
         if (obj.length <= 0) {
          ui.noLots();
         } else {

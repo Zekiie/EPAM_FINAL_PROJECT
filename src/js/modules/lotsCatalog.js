@@ -1,6 +1,3 @@
-//card localstorage
-
-
 //getting lots
 export class Lots {
     async getMenu() {
@@ -57,7 +54,7 @@ export class Lots {
                 bid += +input.value;
             })
         });
-
+        //bid for multiply buttons
         bidBtn.forEach( btn => {
             btn.addEventListener('click', () => {
                 const id = btn.dataset.id;
@@ -66,12 +63,12 @@ export class Lots {
                     const lot = lots.find(el => el.lot_id === +id);
                     lot.price = +lot.price + bid;
                     lot.email_bid = user.email;
-                    localStorage.setItem('lots',  JSON.stringify(lots));
+                    localStorage.setItem('lots', JSON.stringify(lots));
                     document.location.reload(true);
                 } else {
                     const signup = document.querySelector(".signup-classic");
                     document.getElementById("close-signup").addEventListener('click', () => signup.style.display = 'none');
-                  signup.style.display = 'block';
+                    signup.style.display = 'block';
 
                 }
 
@@ -80,10 +77,6 @@ export class Lots {
     }
 
 }
-
-
-//display lots/manipulate with lots
-
 //local storage
 export class CartStorage {
 

@@ -1,6 +1,3 @@
-import {LocalStorage} from "../modules/lotsCatalog";
-import {AddNewLots} from "../modules/addNewLotstoLS";
-
 export class SellPage {
     displaySellForm(cat) {
         const root = document.getElementById('root');
@@ -11,6 +8,7 @@ export class SellPage {
               plusOneWeek.setDate(today.getDate()+7);
         const defaultEndDay = dateFormat(plusOneWeek);
         const dateMin = dateFormat(today);
+        const hoursMin = (today.getHours() + 3) < 10 ? '0' + (today.getHours() + 3) : today.getHours() + 3;
         function dateFormat(date) {
             let year = date.getFullYear();
             let month = date.getMonth() + 1;
@@ -84,7 +82,7 @@ export class SellPage {
                                 <input type="date" id="end_date" class="lot_date" value="${defaultEndDay}"
                                        min="${dateMin}">
                                 <label for="end_time">Till</label>
-                                <input type="time" id="end_time" class="lot_time" value="09:00">
+                                <input type="time" id="end_time" class="lot_time" value="${hoursMin}:00">
                             </div>
 
                         </div>

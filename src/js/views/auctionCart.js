@@ -5,7 +5,6 @@ const storage = new CartStorage();
 const register = new RegisterForm();
 const query = (selector) => [...document.querySelectorAll(selector)];
 let cart = [];
-let idLots = [];
 
 export class AuctionCart {
     async cartView(cart) {
@@ -76,7 +75,6 @@ export class AddToCart {
                 return item;
             }
                 })];
-        console.log(cart)
         storage.saveCart(cart);
         if (cart.length !== 0) {
             quant.map(el => {
@@ -90,7 +88,6 @@ export class AddToCart {
         const cartItems = query('.cart-items');
         const cartQuant = query('.quant');
         const totalSum = document.getElementById('total-price');
-        console.log(cartItems);
         let tempTotal = 0;
         let amount = cart.length;
         cart.map((item, i) => {

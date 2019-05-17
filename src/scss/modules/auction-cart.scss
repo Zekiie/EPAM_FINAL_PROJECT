@@ -1,12 +1,9 @@
 .win-cart {
-  // border: 1px solid black;
   width: 100%;
   right: 0;
   top: 125%;
   padding: 10px;
   background: #fff8f1;
-  // display:flex;
-  // flex-direction:column;
   z-index: 1;
   h2, h3 {
     text-transform: uppercase;
@@ -38,8 +35,7 @@
   }
 }
 .win-lots {
-  // border: 1px solid black;
-  &_line {
+    &_line {
     border-bottom: 4px solid black;
   }
   &_item {
