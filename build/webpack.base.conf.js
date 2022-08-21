@@ -15,9 +15,6 @@ module.exports = {
         paths: PATHS
     },
     entry: ['@babel/polyfill','whatwg-fetch', PATHS.src],
-    // entry: {
-    //     app: PATHS.src
-    // },
     output: {
         filename: `${PATHS.app}js/[name].js`,
         path: PATHS.dist,
